@@ -51,5 +51,12 @@ namespace PosApp.UI
             CategoryForm categoryForm = new CategoryForm();
             categoryForm.Show();
         }
+
+        private void ProductsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ProductForm productForm = new ProductForm();
+            productForm.Show();
+            
+        }
     }
 }
