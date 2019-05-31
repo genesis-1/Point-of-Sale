@@ -124,6 +124,8 @@ namespace PosApp.UI
             userLL.UserType = userTypeComboBox.Text;
             userLL.PassWord = passwordTextBox.Text;
             userLL.AddedDate = DateTime.Now;
+            // this helps us to get the id of the user that inserted the
+            //entry.
             string loggedUser = LoginForm.loggedInUser;
             UserLL userLlWitbId = userDal.GetIDFromUserName(loggedUser);
             userLL.AddedBy = userLlWitbId.Id;
@@ -134,13 +136,14 @@ namespace PosApp.UI
             {
                 MessageBox.Show("The user was Successfull update!");
                 ClearTextBox();
+                RefreshDataGrid();
             }
             else
             {
                 MessageBox.Show("update failed!");
             }
             /// refreshing the data grid.
-            RefreshDataGrid();
+            //RefreshDataGrid();
 
         }
 

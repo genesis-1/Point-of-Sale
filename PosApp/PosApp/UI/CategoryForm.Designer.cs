@@ -153,6 +153,8 @@
             this.categoryDataGridView.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.Black;
             this.categoryDataGridView.Size = new System.Drawing.Size(468, 228);
             this.categoryDataGridView.TabIndex = 27;
+            this.categoryDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.CategoryDataGridView_CellContentClick);
+            this.categoryDataGridView.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.CategoryDataGridView_RowHeaderMouseClick);
             // 
             // deleteButton
             // 
@@ -166,6 +168,7 @@
             this.deleteButton.TabIndex = 30;
             this.deleteButton.Text = "&Delete";
             this.deleteButton.UseVisualStyleBackColor = false;
+            this.deleteButton.Click += new System.EventHandler(this.DeleteButton_Click);
             // 
             // updateButton
             // 
@@ -179,6 +182,7 @@
             this.updateButton.TabIndex = 29;
             this.updateButton.Text = "&Update";
             this.updateButton.UseVisualStyleBackColor = false;
+            this.updateButton.Click += new System.EventHandler(this.UpdateButton_Click);
             // 
             // AddButton
             // 
@@ -202,6 +206,7 @@
             this.SearchTextBox.Name = "SearchTextBox";
             this.SearchTextBox.Size = new System.Drawing.Size(265, 25);
             this.SearchTextBox.TabIndex = 32;
+            this.SearchTextBox.TextChanged += new System.EventHandler(this.SearchTextBox_TextChanged);
             // 
             // ibiSearch
             // 

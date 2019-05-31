@@ -156,6 +156,41 @@ namespace PosApp.DAL
             return isSuccess;
         }
         #endregion
+        #region Search
+        public DataTable Search(String keyWords)
+        {
+            //static method to connect to database
+            SqlConnection sqlConnection = new SqlConnection(connectionString);
+
+            //this is used to hold data from the database
+            DataTable dataTable = new DataTable();
+            try
+            {
+                //query to fetch the data from the database
+                string sql = "select * from Categories Where id like '%" + keyWords + "%' or title like '%" + keyWords + "%' or description like '%"+keyWords+"%'";
+                //for executing the command of the statement
+                SqlCommand sqlCommand = new SqlCommand(sql, sqlConnection);
+                //getting the data from the database
+                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand);
+                //data base connection open
+                sqlConnection.Open();
+                //fill the data in our dataTable
+                sqlDataAdapter.Fill(dataTable);
+            }
+            catch (Exception ex)
+            {
+                // throw any error in case there is an exeption.
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                //closing the connection
+                sqlConnection.Close();
+            }
+            // return the value from the dataTable
+            return dataTable;
+        }
+        #endregion
 
 
     }
