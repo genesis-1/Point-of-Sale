@@ -192,6 +192,7 @@
             this.AddButton.TabIndex = 28;
             this.AddButton.Text = "&Add";
             this.AddButton.UseVisualStyleBackColor = false;
+            this.AddButton.Click += new System.EventHandler(this.AddButton_Click);
             // 
             // SearchTextBox
             // 
