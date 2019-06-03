@@ -150,6 +150,7 @@
             this.productIdTextBox.ReadOnly = true;
             this.productIdTextBox.Size = new System.Drawing.Size(223, 25);
             this.productIdTextBox.TabIndex = 31;
+            this.productIdTextBox.TextChanged += new System.EventHandler(this.ProductIdTextBox_TextChanged);
             // 
             // nameTextBox
             // 
@@ -157,7 +158,6 @@
             this.nameTextBox.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nameTextBox.Location = new System.Drawing.Point(112, 95);
             this.nameTextBox.Name = "nameTextBox";
-            this.nameTextBox.ReadOnly = true;
             this.nameTextBox.Size = new System.Drawing.Size(223, 25);
             this.nameTextBox.TabIndex = 32;
             // 
@@ -176,7 +176,6 @@
             this.descriptionTextBox.Location = new System.Drawing.Point(112, 174);
             this.descriptionTextBox.Multiline = true;
             this.descriptionTextBox.Name = "descriptionTextBox";
-            this.descriptionTextBox.ReadOnly = true;
             this.descriptionTextBox.Size = new System.Drawing.Size(223, 108);
             this.descriptionTextBox.TabIndex = 34;
             // 
@@ -186,7 +185,6 @@
             this.rateTextBox.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rateTextBox.Location = new System.Drawing.Point(112, 293);
             this.rateTextBox.Name = "rateTextBox";
-            this.rateTextBox.ReadOnly = true;
             this.rateTextBox.Size = new System.Drawing.Size(223, 25);
             this.rateTextBox.TabIndex = 35;
             // 
@@ -223,6 +221,7 @@
             this.updateButton.TabIndex = 38;
             this.updateButton.Text = "&Update";
             this.updateButton.UseVisualStyleBackColor = false;
+            this.updateButton.Click += new System.EventHandler(this.UpdateButton_Click);
             // 
             // AddButton
             // 
@@ -236,6 +235,7 @@
             this.AddButton.TabIndex = 37;
             this.AddButton.Text = "&Add";
             this.AddButton.UseVisualStyleBackColor = false;
+            this.AddButton.Click += new System.EventHandler(this.AddButton_Click);
             // 
             // SearchTextBox
             // 

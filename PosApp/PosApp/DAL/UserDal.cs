@@ -243,7 +243,6 @@ namespace PosApp.DAL
             
             return userLL;
         }
-   
         #endregion
 
     }
