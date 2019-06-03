@@ -195,6 +195,8 @@
             this.productDataGridView.Name = "productDataGridView";
             this.productDataGridView.Size = new System.Drawing.Size(439, 220);
             this.productDataGridView.TabIndex = 36;
+            this.productDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ProductDataGridView_CellContentClick);
+            this.productDataGridView.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.ProductDataGridView_RowHeaderMouseClick);
             // 
             // deleteButton
             // 
@@ -208,6 +210,7 @@
             this.deleteButton.TabIndex = 39;
             this.deleteButton.Text = "&Delete";
             this.deleteButton.UseVisualStyleBackColor = false;
+            this.deleteButton.Click += new System.EventHandler(this.DeleteButton_Click);
             // 
             // updateButton
             // 

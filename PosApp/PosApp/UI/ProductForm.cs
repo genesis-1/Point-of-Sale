@@ -40,7 +40,8 @@ namespace PosApp.UI
             CategoryComboBox.DataSource = categories;
             //specify Display member and value member for combobox
             CategoryComboBox.DisplayMember = "title";
-            CategoryComboBox.ValueMember = "title";    
+            CategoryComboBox.ValueMember = "title";
+            UpdateDataGridView();
         }
 
         private void AddButton_Click(object sender, EventArgs e)
@@ -87,12 +88,75 @@ namespace PosApp.UI
 
         private void UpdateButton_Click(object sender, EventArgs e)
         {
+            productLL.Id = Convert.ToInt32(productIdTextBox.Text);
+            productLL.Name = nameTextBox.Text;
+            productLL.Category = CategoryComboBox.Text;
+            productLL.description = descriptionTextBox.Text;
+            productLL.rate = decimal.Parse(rateTextBox.Text);
+            //productLL.qty = 0;
+            productLL.addedDate = DateTime.Now;
+            //get the id of the loggedin user
+            String loggedUser = LoginForm.loggedInUser;
+            UserLL userLL = user.GetIDFromUserName(loggedUser);
+            productLL.addedBy = userLL.Id;
+            if (productDal.update(productLL) == true)
+            {
+                MessageBox.Show("the product is updated successfully");
+                CleareTextFields();
+                UpdateDataGridView();
+            }
+            else
+            {
+                MessageBox.Show("Failed to update the products");
+            }
 
+
+       
+
+            
+            /// refreshing the data grid.
         }
 
         private void ProductIdTextBox_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void ProductDataGridView_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            int rowIndex = e.RowIndex;
+
+            productIdTextBox.Text = productDataGridView.Rows[rowIndex].Cells[0].Value.ToString();
+            nameTextBox.Text = productDataGridView.Rows[rowIndex].Cells[1].Value.ToString();
+            CategoryComboBox.Text = productDataGridView.Rows[rowIndex].Cells[2].Value.ToString();
+            descriptionTextBox.Text = productDataGridView.Rows[rowIndex].Cells[3].Value.ToString();
+            rateTextBox.Text = productDataGridView.Rows[rowIndex].Cells[4].Value.ToString();
+        }
+
+        private void ProductDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+           
+            
+        }
+
+        private void DeleteButton_Click(object sender, EventArgs e)
+        {
+            //getting the user ID
+            productLL.Id = Convert.ToInt32(productIdTextBox.Text);
+            bool success = productDal.Delete(productLL);
+            //if the data is deleted then the value of success will be true else it will be false
+            if (success == true)
+            {
+                MessageBox.Show("deleted the user Successfully");
+                
+                CleareTextFields();
+                
+            }
+            else
+            {
+                MessageBox.Show("Deletion Failed");
+            }
+            UpdateDataGridView();
         }
     }
 }

@@ -102,7 +102,7 @@ namespace PosApp.DAL
             SqlConnection sqlConnection = new SqlConnection(myconnectionstring);
             try
             {
-                String sql = "Update Products SET name = @name,category=@category,description=@description ,rate=@rate,qty=@qty,addedDate=@addedDate,addedBy=@addedBy WHERE Id = @Id";
+                String sql = "Update Products SET name = @name,category=@category,description=@description ,rate=@rate,addedDate=@addedDate,addedBy=@addedBy WHERE Id = @Id";
                 SqlCommand sqlCommand = new SqlCommand(sql, sqlConnection);
                 sqlCommand.Parameters.AddWithValue("@name", productLL.Name);
                 sqlCommand.Parameters.AddWithValue("@category", productLL.Category);
