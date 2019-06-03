@@ -147,7 +147,7 @@ namespace PosApp.UI
             //if the data is deleted then the value of success will be true else it will be false
             if (success == true)
             {
-                MessageBox.Show("deleted the user Successfully");
+                MessageBox.Show("deleted the Product Successfully");
                 
                 CleareTextFields();
                 
@@ -157,6 +157,25 @@ namespace PosApp.UI
                 MessageBox.Show("Deletion Failed");
             }
             UpdateDataGridView();
+        }
+
+        private void SearchTextBox_TextChanged(object sender, EventArgs e)
+        {
+            //Get key word from the Text BOx
+            String keyWords = SearchTextBox.Text;
+
+            //check if the keyWords has value or not
+            if (keyWords != null)
+            {
+                //show user based on keywords
+                DataTable dataTable = productDal.Search(keyWords);
+               productDataGridView.DataSource = dataTable;
+            }
+            else
+            {
+                //show all users from the database
+                UpdateDataGridView();
+            }
         }
     }
 }
