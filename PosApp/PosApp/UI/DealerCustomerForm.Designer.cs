@@ -40,9 +40,9 @@
             this.dealerCustIdLabel = new System.Windows.Forms.Label();
             this.emailTextBox = new System.Windows.Forms.TextBox();
             this.emailLabel = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.contactTextBox = new System.Windows.Forms.TextBox();
             this.Contactlabel = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.addressTextBox = new System.Windows.Forms.TextBox();
             this.Address = new System.Windows.Forms.Label();
             this.deleteButton = new System.Windows.Forms.Button();
             this.updateButton = new System.Windows.Forms.Button();
@@ -91,6 +91,9 @@
             // TypeComboBox
             // 
             this.TypeComboBox.FormattingEnabled = true;
+            this.TypeComboBox.Items.AddRange(new object[] {
+            "Dealer",
+            "Customer"});
             this.TypeComboBox.Location = new System.Drawing.Point(121, 81);
             this.TypeComboBox.Name = "TypeComboBox";
             this.TypeComboBox.Size = new System.Drawing.Size(121, 21);
@@ -168,14 +171,14 @@
             this.emailLabel.TabIndex = 40;
             this.emailLabel.Text = "Email";
             // 
-            // textBox1
+            // contactTextBox
             // 
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(121, 171);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(223, 25);
-            this.textBox1.TabIndex = 43;
+            this.contactTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.contactTextBox.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.contactTextBox.Location = new System.Drawing.Point(121, 171);
+            this.contactTextBox.Name = "contactTextBox";
+            this.contactTextBox.Size = new System.Drawing.Size(223, 25);
+            this.contactTextBox.TabIndex = 43;
             // 
             // Contactlabel
             // 
@@ -188,15 +191,15 @@
             this.Contactlabel.TabIndex = 42;
             this.Contactlabel.Text = "Contact";
             // 
-            // textBox2
+            // addressTextBox
             // 
-            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(120, 202);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(223, 97);
-            this.textBox2.TabIndex = 45;
+            this.addressTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.addressTextBox.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addressTextBox.Location = new System.Drawing.Point(120, 202);
+            this.addressTextBox.Multiline = true;
+            this.addressTextBox.Name = "addressTextBox";
+            this.addressTextBox.Size = new System.Drawing.Size(223, 97);
+            this.addressTextBox.TabIndex = 45;
             // 
             // Address
             // 
@@ -258,6 +261,7 @@
             this.usersDataGridView.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.Black;
             this.usersDataGridView.Size = new System.Drawing.Size(442, 218);
             this.usersDataGridView.TabIndex = 49;
+            this.usersDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.UsersDataGridView_CellContentClick);
             // 
             // searchTextBox
             // 
@@ -292,9 +296,9 @@
             this.Controls.Add(this.deleteButton);
             this.Controls.Add(this.updateButton);
             this.Controls.Add(this.AddButton);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.addressTextBox);
             this.Controls.Add(this.Address);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.contactTextBox);
             this.Controls.Add(this.Contactlabel);
             this.Controls.Add(this.emailTextBox);
             this.Controls.Add(this.emailLabel);
@@ -309,6 +313,7 @@
             this.Name = "DealerCustomerForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "DealerCustomerForm";
+            this.Load += new System.EventHandler(this.DealerCustomerForm_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxClose)).EndInit();
@@ -331,9 +336,9 @@
         private System.Windows.Forms.Label dealerCustIdLabel;
         private System.Windows.Forms.TextBox emailTextBox;
         private System.Windows.Forms.Label emailLabel;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox contactTextBox;
         private System.Windows.Forms.Label Contactlabel;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox addressTextBox;
         private System.Windows.Forms.Label Address;
         private System.Windows.Forms.Button deleteButton;
         private System.Windows.Forms.Button updateButton;

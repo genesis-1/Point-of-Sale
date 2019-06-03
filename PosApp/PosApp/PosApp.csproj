@@ -52,6 +52,7 @@
     <Compile Include="Bussiness\LoginLL.cs" />
     <Compile Include="Bussiness\ProductLL.cs" />
     <Compile Include="DAL\CategoryDal.cs" />
+    <Compile Include="DAL\DealerCustomerDal.cs" />
     <Compile Include="DAL\LoginDal.cs" />
     <Compile Include="DAL\ProductDal.cs" />
     <Compile Include="DAL\UserDal.cs" />
