@@ -61,7 +61,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(803, 35);
+            this.panel1.Size = new System.Drawing.Size(820, 35);
             this.panel1.TabIndex = 2;
             // 
             // pictureBoxClose
@@ -266,7 +266,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.ClientSize = new System.Drawing.Size(803, 400);
+            this.ClientSize = new System.Drawing.Size(820, 424);
             this.Controls.Add(this.SearchTextBox);
             this.Controls.Add(this.ibiSearch);
             this.Controls.Add(this.deleteButton);

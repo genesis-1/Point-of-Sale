@@ -58,5 +58,11 @@ namespace PosApp.UI
             productForm.Show();
             
         }
+
+        private void DealerAndCustomersToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DealerCustomerForm dealerCustomerForm = new DealerCustomerForm();
+            dealerCustomerForm.Show();
+        }
     }
 }

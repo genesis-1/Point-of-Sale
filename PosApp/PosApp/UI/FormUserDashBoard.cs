@@ -34,5 +34,11 @@ namespace PosApp.UI
         {
             loggedInUser.Text = LoginForm.loggedInUser;
         }
+
+        private void DealerAndCustomerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DealerCustomerForm dealerCustomerForm = new DealerCustomerForm();
+            dealerCustomerForm.Show();
+        }
     }
 }

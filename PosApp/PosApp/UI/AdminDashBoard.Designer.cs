@@ -41,6 +41,7 @@
             this.ibiAppFName = new System.Windows.Forms.Label();
             this.ibiLastName = new System.Windows.Forms.Label();
             this.ibiSHead = new System.Windows.Forms.Label();
+            this.dealerAndCustomersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panelFooter.SuspendLayout();
             this.menuStripTop.SuspendLayout();
             this.SuspendLayout();
@@ -77,7 +78,8 @@
             this.categoryToolStripMenuItem,
             this.productsToolStripMenuItem,
             this.invetoryToolStripMenuItem,
-            this.transactionsToolStripMenuItem});
+            this.transactionsToolStripMenuItem,
+            this.dealerAndCustomersToolStripMenuItem});
             this.menuStripTop.Location = new System.Drawing.Point(0, 0);
             this.menuStripTop.Name = "menuStripTop";
             this.menuStripTop.Padding = new System.Windows.Forms.Padding(8, 2, 0, 2);
@@ -177,6 +179,13 @@
             this.ibiSHead.TabIndex = 16;
             this.ibiSHead.Text = "Point of Sale Management ";
             // 
+            // dealerAndCustomersToolStripMenuItem
+            // 
+            this.dealerAndCustomersToolStripMenuItem.Name = "dealerAndCustomersToolStripMenuItem";
+            this.dealerAndCustomersToolStripMenuItem.Size = new System.Drawing.Size(135, 20);
+            this.dealerAndCustomersToolStripMenuItem.Text = "Dealer and Customers";
+            this.dealerAndCustomersToolStripMenuItem.Click += new System.EventHandler(this.DealerAndCustomersToolStripMenuItem_Click);
+            // 
             // AdminDashBoard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 13F);
@@ -222,5 +231,6 @@
         private System.Windows.Forms.Label ibiAppFName;
         private System.Windows.Forms.Label ibiLastName;
         private System.Windows.Forms.Label ibiSHead;
+        private System.Windows.Forms.ToolStripMenuItem dealerAndCustomersToolStripMenuItem;
     }
 }

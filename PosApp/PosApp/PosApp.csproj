@@ -48,6 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Bussiness\CategoryLL.cs" />
+    <Compile Include="Bussiness\DealerAndCustomerLL.cs" />
     <Compile Include="Bussiness\LoginLL.cs" />
     <Compile Include="Bussiness\ProductLL.cs" />
     <Compile Include="DAL\CategoryDal.cs" />
@@ -71,6 +72,12 @@
     </Compile>
     <Compile Include="UI\CategoryForm.Designer.cs">
       <DependentUpon>CategoryForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\DealerCustomerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\DealerCustomerForm.Designer.cs">
+      <DependentUpon>DealerCustomerForm.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\FormUserDashBoard.cs">
       <SubType>Form</SubType>
@@ -109,6 +116,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\CategoryForm.resx">
       <DependentUpon>CategoryForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\DealerCustomerForm.resx">
+      <DependentUpon>DealerCustomerForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\FormUserDashBoard.resx">
       <DependentUpon>FormUserDashBoard.cs</DependentUpon>
