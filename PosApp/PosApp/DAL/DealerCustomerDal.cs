@@ -57,8 +57,8 @@ namespace PosApp.DAL
             SqlConnection sqlConnection = new SqlConnection(myconnectionstring);
             try
             {
-                string sql = "insert into DealerCustomers(type,name,email ,contact,address,addedDate,addedBy )" +
-                                        "values(@type,@name,@email ,@contact,@address,@addedDate,@addedBy )";
+                string sql = "insert into DealerCustomers(type,name,email,contact,address,addedDate,addedBy )" +
+                                        "values(@type,@name,@email,@contact,@address,@addedDate,@addedBy )";
                 SqlCommand sqlCommand = new SqlCommand(sql, sqlConnection);
                 sqlCommand.Parameters.AddWithValue("@type", dealerAndCustomerLL.Type);
                 sqlCommand.Parameters.AddWithValue("@name", dealerAndCustomerLL.Name);
@@ -102,7 +102,7 @@ namespace PosApp.DAL
             SqlConnection sqlConnection = new SqlConnection(myconnectionstring);
             try
             {
-                String sql = "Update DealerCustomers SET type = @type,name = @name,email = @email ,contact = @contact,contact = @contact,addedDate = @addedDate,addedBy = @addedBy WHERE Id = @Id";
+                String sql = "Update DealerCustomers SET type = @type,name = @name,email = @email,contact = @contact,addedDate = @addedDate,addedBy = @addedBy WHERE Id = @Id";
                 SqlCommand sqlCommand = new SqlCommand(sql, sqlConnection);
                 sqlCommand.Parameters.AddWithValue("@type", dealerAndCustomerLL.Type);
                 sqlCommand.Parameters.AddWithValue("@name", dealerAndCustomerLL.Name);

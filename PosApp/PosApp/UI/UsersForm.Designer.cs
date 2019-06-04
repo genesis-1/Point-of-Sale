@@ -317,6 +317,7 @@
             this.usersDataGridView.TabIndex = 21;
             this.usersDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.UsersDataGridView_CellContentClick);
             this.usersDataGridView.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.UsersDataGridView_RowHeaderMouseClick);
+            this.usersDataGridView.MouseClick += new System.Windows.Forms.MouseEventHandler(this.UsersDataGridView_MouseClick);
             // 
             // SearchTextBox
             // 

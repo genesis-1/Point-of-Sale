@@ -98,6 +98,7 @@
             this.TypeComboBox.Name = "TypeComboBox";
             this.TypeComboBox.Size = new System.Drawing.Size(121, 21);
             this.TypeComboBox.TabIndex = 39;
+            this.TypeComboBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TypeComboBox_KeyPress);
             // 
             // nameTextBox
             // 
@@ -123,11 +124,11 @@
             this.typelabel.AutoSize = true;
             this.typelabel.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.typelabel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.typelabel.Location = new System.Drawing.Point(12, 81);
+            this.typelabel.Location = new System.Drawing.Point(13, 81);
             this.typelabel.Name = "typelabel";
-            this.typelabel.Size = new System.Drawing.Size(61, 17);
+            this.typelabel.Size = new System.Drawing.Size(35, 17);
             this.typelabel.TabIndex = 36;
-            this.typelabel.Text = "Category";
+            this.typelabel.Text = "Type";
             // 
             // productName
             // 
@@ -224,6 +225,7 @@
             this.deleteButton.TabIndex = 48;
             this.deleteButton.Text = "&Delete";
             this.deleteButton.UseVisualStyleBackColor = false;
+            this.deleteButton.Click += new System.EventHandler(this.DeleteButton_Click);
             // 
             // updateButton
             // 
@@ -237,6 +239,7 @@
             this.updateButton.TabIndex = 47;
             this.updateButton.Text = "&Update";
             this.updateButton.UseVisualStyleBackColor = false;
+            this.updateButton.Click += new System.EventHandler(this.UpdateButton_Click);
             // 
             // AddButton
             // 
@@ -262,6 +265,8 @@
             this.usersDataGridView.Size = new System.Drawing.Size(442, 218);
             this.usersDataGridView.TabIndex = 49;
             this.usersDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.UsersDataGridView_CellContentClick);
+            this.usersDataGridView.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.UsersDataGridView_RowHeaderMouseClick);
+            this.usersDataGridView.MouseClick += new System.Windows.Forms.MouseEventHandler(this.UsersDataGridView_MouseClick);
             // 
             // searchTextBox
             // 
@@ -269,9 +274,9 @@
             this.searchTextBox.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.searchTextBox.Location = new System.Drawing.Point(424, 49);
             this.searchTextBox.Name = "searchTextBox";
-            this.searchTextBox.ReadOnly = true;
             this.searchTextBox.Size = new System.Drawing.Size(327, 25);
             this.searchTextBox.TabIndex = 51;
+            this.searchTextBox.TextChanged += new System.EventHandler(this.SearchTextBox_TextChanged);
             // 
             // label1
             // 

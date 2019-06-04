@@ -184,5 +184,10 @@ namespace PosApp.UI
             }
 
         }
+
+        private void UsersDataGridView_MouseClick(object sender, MouseEventArgs e)
+        {
+
+        }
     }
 }
