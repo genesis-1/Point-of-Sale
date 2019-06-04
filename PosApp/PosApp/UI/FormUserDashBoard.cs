@@ -40,5 +40,17 @@ namespace PosApp.UI
             DealerCustomerForm dealerCustomerForm = new DealerCustomerForm();
             dealerCustomerForm.Show();
         }
+
+        private void PurchaseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PurchaseSalesForm purchaseSales = new PurchaseSalesForm();
+            purchaseSales.Show();
+        }
+
+        private void SalesFormsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PurchaseSalesForm purchaseSales = new PurchaseSalesForm();
+            purchaseSales.Show();
+        }
     }
 }

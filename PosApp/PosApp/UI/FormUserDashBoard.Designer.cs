@@ -32,6 +32,7 @@
             this.purchaseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salesFormsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.inventoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dealerAndCustomerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panelFooter = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.ibiSHead = new System.Windows.Forms.Label();
@@ -39,7 +40,6 @@
             this.ibiAppFName = new System.Windows.Forms.Label();
             this.loggedInUser = new System.Windows.Forms.Label();
             this.lblUser = new System.Windows.Forms.Label();
-            this.dealerAndCustomerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.panelFooter.SuspendLayout();
             this.SuspendLayout();
@@ -62,18 +62,27 @@
             this.purchaseToolStripMenuItem.Name = "purchaseToolStripMenuItem";
             this.purchaseToolStripMenuItem.Size = new System.Drawing.Size(67, 20);
             this.purchaseToolStripMenuItem.Text = "Purchase";
+            this.purchaseToolStripMenuItem.Click += new System.EventHandler(this.PurchaseToolStripMenuItem_Click);
             // 
             // salesFormsToolStripMenuItem
             // 
             this.salesFormsToolStripMenuItem.Name = "salesFormsToolStripMenuItem";
             this.salesFormsToolStripMenuItem.Size = new System.Drawing.Size(45, 20);
             this.salesFormsToolStripMenuItem.Text = "Sales";
+            this.salesFormsToolStripMenuItem.Click += new System.EventHandler(this.SalesFormsToolStripMenuItem_Click);
             // 
             // inventoryToolStripMenuItem
             // 
             this.inventoryToolStripMenuItem.Name = "inventoryToolStripMenuItem";
             this.inventoryToolStripMenuItem.Size = new System.Drawing.Size(69, 20);
             this.inventoryToolStripMenuItem.Text = "Inventory";
+            // 
+            // dealerAndCustomerToolStripMenuItem
+            // 
+            this.dealerAndCustomerToolStripMenuItem.Name = "dealerAndCustomerToolStripMenuItem";
+            this.dealerAndCustomerToolStripMenuItem.Size = new System.Drawing.Size(130, 20);
+            this.dealerAndCustomerToolStripMenuItem.Text = "Dealer and Customer";
+            this.dealerAndCustomerToolStripMenuItem.Click += new System.EventHandler(this.DealerAndCustomerToolStripMenuItem_Click);
             // 
             // panelFooter
             // 
@@ -158,13 +167,6 @@
             this.lblUser.Size = new System.Drawing.Size(36, 17);
             this.lblUser.TabIndex = 17;
             this.lblUser.Text = "user:";
-            // 
-            // dealerAndCustomerToolStripMenuItem
-            // 
-            this.dealerAndCustomerToolStripMenuItem.Name = "dealerAndCustomerToolStripMenuItem";
-            this.dealerAndCustomerToolStripMenuItem.Size = new System.Drawing.Size(130, 20);
-            this.dealerAndCustomerToolStripMenuItem.Text = "Dealer and Customer";
-            this.dealerAndCustomerToolStripMenuItem.Click += new System.EventHandler(this.DealerAndCustomerToolStripMenuItem_Click);
             // 
             // FormUserDashBoard
             // 

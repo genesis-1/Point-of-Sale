@@ -51,6 +51,8 @@
     <Compile Include="Bussiness\DealerAndCustomerLL.cs" />
     <Compile Include="Bussiness\LoginLL.cs" />
     <Compile Include="Bussiness\ProductLL.cs" />
+    <Compile Include="Bussiness\TransactionDetailLL.cs" />
+    <Compile Include="Bussiness\TransactionLL.cs" />
     <Compile Include="DAL\CategoryDal.cs" />
     <Compile Include="DAL\DealerCustomerDal.cs" />
     <Compile Include="DAL\LoginDal.cs" />
@@ -106,6 +108,12 @@
     <Compile Include="UI\ProductForm.Designer.cs">
       <DependentUpon>ProductForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\PurchaseSalesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\PurchaseSalesForm.Designer.cs">
+      <DependentUpon>PurchaseSalesForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\UsersForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -137,6 +145,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\ProductForm.resx">
       <DependentUpon>ProductForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\PurchaseSalesForm.resx">
+      <DependentUpon>PurchaseSalesForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\UsersForm.resx">
       <DependentUpon>UsersForm.cs</DependentUpon>
