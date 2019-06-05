@@ -57,6 +57,8 @@
     <Compile Include="DAL\DealerCustomerDal.cs" />
     <Compile Include="DAL\LoginDal.cs" />
     <Compile Include="DAL\ProductDal.cs" />
+    <Compile Include="DAL\TransactionDal.cs" />
+    <Compile Include="DAL\TransactionDetailDal.cs" />
     <Compile Include="DAL\UserDal.cs" />
     <Compile Include="Bussiness\UserLL.cs" />
     <Compile Include="Properties\Resources.Designer.cs">

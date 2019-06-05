@@ -33,57 +33,57 @@
             this.pictureBoxClose = new System.Windows.Forms.PictureBox();
             this.purchaseAndSalesLabel = new System.Windows.Forms.Label();
             this.dealerCustomerpanel = new System.Windows.Forms.Panel();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.dealerCustomerlabel = new System.Windows.Forms.Label();
-            this.searchLabel = new System.Windows.Forms.Label();
-            this.nameLabel = new System.Windows.Forms.Label();
-            this.searchTextBox = new System.Windows.Forms.TextBox();
-            this.nameTextBox = new System.Windows.Forms.TextBox();
+            this.billLabel = new System.Windows.Forms.Label();
+            this.addressTextBox = new System.Windows.Forms.TextBox();
+            this.addressLabel = new System.Windows.Forms.Label();
             this.contactTextBox = new System.Windows.Forms.TextBox();
             this.EmailTextBox = new System.Windows.Forms.TextBox();
             this.contactLabel = new System.Windows.Forms.Label();
             this.emailLabel = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.addressLabel = new System.Windows.Forms.Label();
-            this.billLabel = new System.Windows.Forms.Label();
+            this.nameTextBox = new System.Windows.Forms.TextBox();
+            this.searchTextBox = new System.Windows.Forms.TextBox();
+            this.nameLabel = new System.Windows.Forms.Label();
+            this.searchLabel = new System.Windows.Forms.Label();
+            this.dealerCustomerlabel = new System.Windows.Forms.Label();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.productSearchTextBox = new System.Windows.Forms.TextBox();
             this.productNameLabel = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.ProductNametextBox = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.InvetoryLabel = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.rateLabel = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.qtyLabel = new System.Windows.Forms.Label();
             this.AddButton = new System.Windows.Forms.Button();
+            this.qtytextBox = new System.Windows.Forms.TextBox();
+            this.qtyLabel = new System.Windows.Forms.Label();
+            this.ratetextBox = new System.Windows.Forms.TextBox();
+            this.rateLabel = new System.Windows.Forms.Label();
+            this.InvertorytextBox = new System.Windows.Forms.TextBox();
+            this.InvetoryLabel = new System.Windows.Forms.Label();
             this.addedProductpanel = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.addedProductslabel = new System.Windows.Forms.Label();
-            this.Calculationlabel = new System.Windows.Forms.Label();
-            this.SubTotalLabel = new System.Windows.Forms.Label();
-            this.discountLabel = new System.Windows.Forms.Label();
-            this.vatLabel = new System.Windows.Forms.Label();
-            this.grandLabel = new System.Windows.Forms.Label();
-            this.paidAmountlabel = new System.Windows.Forms.Label();
-            this.returnAmountLabel = new System.Windows.Forms.Label();
-            this.subTotalTextBox = new System.Windows.Forms.TextBox();
-            this.discountTextBox = new System.Windows.Forms.TextBox();
-            this.VatTextBox = new System.Windows.Forms.TextBox();
-            this.grandTotalTextBox = new System.Windows.Forms.TextBox();
-            this.PaidAmountTextBox = new System.Windows.Forms.TextBox();
-            this.ReturnAmountTextBox = new System.Windows.Forms.TextBox();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.panel4 = new System.Windows.Forms.Panel();
             this.saveButton = new System.Windows.Forms.Button();
+            this.ReturnAmountTextBox = new System.Windows.Forms.TextBox();
+            this.PaidAmountTextBox = new System.Windows.Forms.TextBox();
+            this.grandTotalTextBox = new System.Windows.Forms.TextBox();
+            this.VatTextBox = new System.Windows.Forms.TextBox();
+            this.discountTextBox = new System.Windows.Forms.TextBox();
+            this.subTotalTextBox = new System.Windows.Forms.TextBox();
+            this.returnAmountLabel = new System.Windows.Forms.Label();
+            this.paidAmountlabel = new System.Windows.Forms.Label();
+            this.grandLabel = new System.Windows.Forms.Label();
+            this.vatLabel = new System.Windows.Forms.Label();
+            this.discountLabel = new System.Windows.Forms.Label();
+            this.SubTotalLabel = new System.Windows.Forms.Label();
+            this.Calculationlabel = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxClose)).BeginInit();
             this.dealerCustomerpanel.SuspendLayout();
             this.panel2.SuspendLayout();
             this.addedProductpanel.SuspendLayout();
-            this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.panel4.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -96,6 +96,7 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1257, 35);
             this.panel1.TabIndex = 1;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.Panel1_Paint);
             // 
             // pictureBoxClose
             // 
@@ -122,7 +123,7 @@
             // dealerCustomerpanel
             // 
             this.dealerCustomerpanel.Controls.Add(this.billLabel);
-            this.dealerCustomerpanel.Controls.Add(this.textBox6);
+            this.dealerCustomerpanel.Controls.Add(this.addressTextBox);
             this.dealerCustomerpanel.Controls.Add(this.addressLabel);
             this.dealerCustomerpanel.Controls.Add(this.contactTextBox);
             this.dealerCustomerpanel.Controls.Add(this.EmailTextBox);
@@ -139,59 +140,33 @@
             this.dealerCustomerpanel.Size = new System.Drawing.Size(1233, 92);
             this.dealerCustomerpanel.TabIndex = 2;
             // 
-            // dateTimePicker1
+            // billLabel
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(1015, 22);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker1.TabIndex = 0;
+            this.billLabel.AutoSize = true;
+            this.billLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.billLabel.Location = new System.Drawing.Point(952, 22);
+            this.billLabel.Name = "billLabel";
+            this.billLabel.Size = new System.Drawing.Size(57, 17);
+            this.billLabel.TabIndex = 13;
+            this.billLabel.Text = "Bill Date";
             // 
-            // dealerCustomerlabel
+            // addressTextBox
             // 
-            this.dealerCustomerlabel.AutoSize = true;
-            this.dealerCustomerlabel.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dealerCustomerlabel.Location = new System.Drawing.Point(3, 0);
-            this.dealerCustomerlabel.Name = "dealerCustomerlabel";
-            this.dealerCustomerlabel.Size = new System.Drawing.Size(185, 17);
-            this.dealerCustomerlabel.TabIndex = 1;
-            this.dealerCustomerlabel.Text = "Dealer and Customer Details\r\n";
+            this.addressTextBox.Location = new System.Drawing.Point(695, 22);
+            this.addressTextBox.Multiline = true;
+            this.addressTextBox.Name = "addressTextBox";
+            this.addressTextBox.Size = new System.Drawing.Size(232, 28);
+            this.addressTextBox.TabIndex = 12;
             // 
-            // searchLabel
+            // addressLabel
             // 
-            this.searchLabel.AutoSize = true;
-            this.searchLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchLabel.Location = new System.Drawing.Point(2, 19);
-            this.searchLabel.Name = "searchLabel";
-            this.searchLabel.Size = new System.Drawing.Size(48, 17);
-            this.searchLabel.TabIndex = 2;
-            this.searchLabel.Text = "Search";
-            // 
-            // nameLabel
-            // 
-            this.nameLabel.AutoSize = true;
-            this.nameLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nameLabel.Location = new System.Drawing.Point(2, 55);
-            this.nameLabel.Name = "nameLabel";
-            this.nameLabel.Size = new System.Drawing.Size(44, 17);
-            this.nameLabel.TabIndex = 3;
-            this.nameLabel.Text = "Name";
-            // 
-            // searchTextBox
-            // 
-            this.searchTextBox.Location = new System.Drawing.Point(56, 22);
-            this.searchTextBox.Multiline = true;
-            this.searchTextBox.Name = "searchTextBox";
-            this.searchTextBox.Size = new System.Drawing.Size(232, 28);
-            this.searchTextBox.TabIndex = 4;
-            this.searchTextBox.TextChanged += new System.EventHandler(this.TextBox1_TextChanged);
-            // 
-            // nameTextBox
-            // 
-            this.nameTextBox.Location = new System.Drawing.Point(56, 56);
-            this.nameTextBox.Multiline = true;
-            this.nameTextBox.Name = "nameTextBox";
-            this.nameTextBox.Size = new System.Drawing.Size(232, 28);
-            this.nameTextBox.TabIndex = 5;
+            this.addressLabel.AutoSize = true;
+            this.addressLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addressLabel.Location = new System.Drawing.Point(632, 22);
+            this.addressLabel.Name = "addressLabel";
+            this.addressLabel.Size = new System.Drawing.Size(57, 17);
+            this.addressLabel.TabIndex = 10;
+            this.addressLabel.Text = "Address";
             // 
             // contactTextBox
             // 
@@ -229,33 +204,59 @@
             this.emailLabel.TabIndex = 6;
             this.emailLabel.Text = "Email";
             // 
-            // textBox6
+            // nameTextBox
             // 
-            this.textBox6.Location = new System.Drawing.Point(695, 22);
-            this.textBox6.Multiline = true;
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(232, 28);
-            this.textBox6.TabIndex = 12;
+            this.nameTextBox.Location = new System.Drawing.Point(56, 56);
+            this.nameTextBox.Multiline = true;
+            this.nameTextBox.Name = "nameTextBox";
+            this.nameTextBox.Size = new System.Drawing.Size(232, 28);
+            this.nameTextBox.TabIndex = 5;
             // 
-            // addressLabel
+            // searchTextBox
             // 
-            this.addressLabel.AutoSize = true;
-            this.addressLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addressLabel.Location = new System.Drawing.Point(632, 22);
-            this.addressLabel.Name = "addressLabel";
-            this.addressLabel.Size = new System.Drawing.Size(57, 17);
-            this.addressLabel.TabIndex = 10;
-            this.addressLabel.Text = "Address";
+            this.searchTextBox.Location = new System.Drawing.Point(56, 22);
+            this.searchTextBox.Multiline = true;
+            this.searchTextBox.Name = "searchTextBox";
+            this.searchTextBox.Size = new System.Drawing.Size(232, 28);
+            this.searchTextBox.TabIndex = 4;
+            this.searchTextBox.TextChanged += new System.EventHandler(this.TextBox1_TextChanged);
             // 
-            // billLabel
+            // nameLabel
             // 
-            this.billLabel.AutoSize = true;
-            this.billLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.billLabel.Location = new System.Drawing.Point(952, 22);
-            this.billLabel.Name = "billLabel";
-            this.billLabel.Size = new System.Drawing.Size(57, 17);
-            this.billLabel.TabIndex = 13;
-            this.billLabel.Text = "Bill Date";
+            this.nameLabel.AutoSize = true;
+            this.nameLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nameLabel.Location = new System.Drawing.Point(2, 55);
+            this.nameLabel.Name = "nameLabel";
+            this.nameLabel.Size = new System.Drawing.Size(44, 17);
+            this.nameLabel.TabIndex = 3;
+            this.nameLabel.Text = "Name";
+            // 
+            // searchLabel
+            // 
+            this.searchLabel.AutoSize = true;
+            this.searchLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchLabel.Location = new System.Drawing.Point(2, 19);
+            this.searchLabel.Name = "searchLabel";
+            this.searchLabel.Size = new System.Drawing.Size(48, 17);
+            this.searchLabel.TabIndex = 2;
+            this.searchLabel.Text = "Search";
+            // 
+            // dealerCustomerlabel
+            // 
+            this.dealerCustomerlabel.AutoSize = true;
+            this.dealerCustomerlabel.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dealerCustomerlabel.Location = new System.Drawing.Point(3, 0);
+            this.dealerCustomerlabel.Name = "dealerCustomerlabel";
+            this.dealerCustomerlabel.Size = new System.Drawing.Size(185, 17);
+            this.dealerCustomerlabel.TabIndex = 1;
+            this.dealerCustomerlabel.Text = "Dealer and Customer Details\r\n";
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(1015, 22);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker1.TabIndex = 0;
             // 
             // label1
             // 
@@ -271,110 +272,56 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(3, 28);
+            this.label2.Location = new System.Drawing.Point(2, 18);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(48, 17);
             this.label2.TabIndex = 5;
             this.label2.Text = "Search";
             // 
-            // textBox1
+            // productSearchTextBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(57, 31);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(163, 27);
-            this.textBox1.TabIndex = 6;
+            this.productSearchTextBox.Location = new System.Drawing.Point(56, 21);
+            this.productSearchTextBox.Multiline = true;
+            this.productSearchTextBox.Name = "productSearchTextBox";
+            this.productSearchTextBox.Size = new System.Drawing.Size(163, 27);
+            this.productSearchTextBox.TabIndex = 6;
             // 
             // productNameLabel
             // 
             this.productNameLabel.AutoSize = true;
             this.productNameLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.productNameLabel.Location = new System.Drawing.Point(226, 31);
+            this.productNameLabel.Location = new System.Drawing.Point(224, 21);
             this.productNameLabel.Name = "productNameLabel";
             this.productNameLabel.Size = new System.Drawing.Size(44, 17);
             this.productNameLabel.TabIndex = 7;
             this.productNameLabel.Text = "Name";
             // 
-            // textBox2
+            // ProductNametextBox
             // 
-            this.textBox2.Location = new System.Drawing.Point(276, 31);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(179, 27);
-            this.textBox2.TabIndex = 8;
+            this.ProductNametextBox.Location = new System.Drawing.Point(274, 21);
+            this.ProductNametextBox.Multiline = true;
+            this.ProductNametextBox.Name = "ProductNametextBox";
+            this.ProductNametextBox.Size = new System.Drawing.Size(179, 27);
+            this.ProductNametextBox.TabIndex = 8;
             // 
             // panel2
             // 
             this.panel2.Controls.Add(this.AddButton);
-            this.panel2.Controls.Add(this.textBox5);
+            this.panel2.Controls.Add(this.qtytextBox);
             this.panel2.Controls.Add(this.qtyLabel);
-            this.panel2.Controls.Add(this.textBox4);
+            this.panel2.Controls.Add(this.ratetextBox);
             this.panel2.Controls.Add(this.rateLabel);
-            this.panel2.Controls.Add(this.textBox3);
+            this.panel2.Controls.Add(this.InvertorytextBox);
             this.panel2.Controls.Add(this.InvetoryLabel);
-            this.panel2.Controls.Add(this.textBox2);
+            this.panel2.Controls.Add(this.ProductNametextBox);
             this.panel2.Controls.Add(this.productNameLabel);
-            this.panel2.Controls.Add(this.textBox1);
+            this.panel2.Controls.Add(this.productSearchTextBox);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Location = new System.Drawing.Point(12, 149);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1233, 70);
+            this.panel2.Size = new System.Drawing.Size(1233, 61);
             this.panel2.TabIndex = 3;
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(527, 28);
-            this.textBox3.Multiline = true;
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(179, 27);
-            this.textBox3.TabIndex = 10;
-            // 
-            // InvetoryLabel
-            // 
-            this.InvetoryLabel.AutoSize = true;
-            this.InvetoryLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.InvetoryLabel.Location = new System.Drawing.Point(461, 28);
-            this.InvetoryLabel.Name = "InvetoryLabel";
-            this.InvetoryLabel.Size = new System.Drawing.Size(60, 17);
-            this.InvetoryLabel.TabIndex = 9;
-            this.InvetoryLabel.Text = "Invetory";
-            // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(750, 31);
-            this.textBox4.Multiline = true;
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(179, 27);
-            this.textBox4.TabIndex = 12;
-            // 
-            // rateLabel
-            // 
-            this.rateLabel.AutoSize = true;
-            this.rateLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rateLabel.Location = new System.Drawing.Point(712, 28);
-            this.rateLabel.Name = "rateLabel";
-            this.rateLabel.Size = new System.Drawing.Size(32, 17);
-            this.rateLabel.TabIndex = 11;
-            this.rateLabel.Text = "rate";
-            // 
-            // textBox5
-            // 
-            this.textBox5.Location = new System.Drawing.Point(969, 31);
-            this.textBox5.Multiline = true;
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(179, 27);
-            this.textBox5.TabIndex = 14;
-            // 
-            // qtyLabel
-            // 
-            this.qtyLabel.AutoSize = true;
-            this.qtyLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.qtyLabel.Location = new System.Drawing.Point(935, 31);
-            this.qtyLabel.Name = "qtyLabel";
-            this.qtyLabel.Size = new System.Drawing.Size(28, 17);
-            this.qtyLabel.TabIndex = 13;
-            this.qtyLabel.Text = "qty";
             // 
             // AddButton
             // 
@@ -382,12 +329,66 @@
             this.AddButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.AddButton.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AddButton.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.AddButton.Location = new System.Drawing.Point(1162, 31);
+            this.AddButton.Location = new System.Drawing.Point(1152, 21);
             this.AddButton.Name = "AddButton";
-            this.AddButton.Size = new System.Drawing.Size(68, 27);
+            this.AddButton.Size = new System.Drawing.Size(78, 27);
             this.AddButton.TabIndex = 47;
             this.AddButton.Text = "&Add";
             this.AddButton.UseVisualStyleBackColor = false;
+            // 
+            // qtytextBox
+            // 
+            this.qtytextBox.Location = new System.Drawing.Point(967, 21);
+            this.qtytextBox.Multiline = true;
+            this.qtytextBox.Name = "qtytextBox";
+            this.qtytextBox.Size = new System.Drawing.Size(179, 27);
+            this.qtytextBox.TabIndex = 14;
+            // 
+            // qtyLabel
+            // 
+            this.qtyLabel.AutoSize = true;
+            this.qtyLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.qtyLabel.Location = new System.Drawing.Point(933, 21);
+            this.qtyLabel.Name = "qtyLabel";
+            this.qtyLabel.Size = new System.Drawing.Size(28, 17);
+            this.qtyLabel.TabIndex = 13;
+            this.qtyLabel.Text = "qty";
+            // 
+            // ratetextBox
+            // 
+            this.ratetextBox.Location = new System.Drawing.Point(748, 21);
+            this.ratetextBox.Multiline = true;
+            this.ratetextBox.Name = "ratetextBox";
+            this.ratetextBox.Size = new System.Drawing.Size(179, 27);
+            this.ratetextBox.TabIndex = 12;
+            // 
+            // rateLabel
+            // 
+            this.rateLabel.AutoSize = true;
+            this.rateLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rateLabel.Location = new System.Drawing.Point(710, 18);
+            this.rateLabel.Name = "rateLabel";
+            this.rateLabel.Size = new System.Drawing.Size(32, 17);
+            this.rateLabel.TabIndex = 11;
+            this.rateLabel.Text = "rate";
+            // 
+            // InvertorytextBox
+            // 
+            this.InvertorytextBox.Location = new System.Drawing.Point(525, 18);
+            this.InvertorytextBox.Multiline = true;
+            this.InvertorytextBox.Name = "InvertorytextBox";
+            this.InvertorytextBox.Size = new System.Drawing.Size(179, 27);
+            this.InvertorytextBox.TabIndex = 10;
+            // 
+            // InvetoryLabel
+            // 
+            this.InvetoryLabel.AutoSize = true;
+            this.InvetoryLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.InvetoryLabel.Location = new System.Drawing.Point(459, 18);
+            this.InvetoryLabel.Name = "InvetoryLabel";
+            this.InvetoryLabel.Size = new System.Drawing.Size(60, 17);
+            this.InvetoryLabel.TabIndex = 9;
+            this.InvetoryLabel.Text = "Invetory";
             // 
             // addedProductpanel
             // 
@@ -397,6 +398,23 @@
             this.addedProductpanel.Name = "addedProductpanel";
             this.addedProductpanel.Size = new System.Drawing.Size(614, 262);
             this.addedProductpanel.TabIndex = 4;
+            // 
+            // addedProductslabel
+            // 
+            this.addedProductslabel.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addedProductslabel.Location = new System.Drawing.Point(14, 0);
+            this.addedProductslabel.Name = "addedProductslabel";
+            this.addedProductslabel.Size = new System.Drawing.Size(106, 17);
+            this.addedProductslabel.TabIndex = 3;
+            this.addedProductslabel.Text = "Added Products\r\n\r\n";
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(5, 30);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(606, 229);
+            this.dataGridView1.TabIndex = 0;
             // 
             // panel4
             // 
@@ -419,133 +437,18 @@
             this.panel4.Size = new System.Drawing.Size(598, 262);
             this.panel4.TabIndex = 5;
             // 
-            // dataGridView1
+            // saveButton
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(5, 30);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(606, 229);
-            this.dataGridView1.TabIndex = 0;
-            // 
-            // addedProductslabel
-            // 
-            this.addedProductslabel.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addedProductslabel.Location = new System.Drawing.Point(14, 0);
-            this.addedProductslabel.Name = "addedProductslabel";
-            this.addedProductslabel.Size = new System.Drawing.Size(106, 17);
-            this.addedProductslabel.TabIndex = 3;
-            this.addedProductslabel.Text = "Added Products\r\n\r\n";
-            // 
-            // Calculationlabel
-            // 
-            this.Calculationlabel.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Calculationlabel.Location = new System.Drawing.Point(14, 0);
-            this.Calculationlabel.Name = "Calculationlabel";
-            this.Calculationlabel.Size = new System.Drawing.Size(129, 17);
-            this.Calculationlabel.TabIndex = 4;
-            this.Calculationlabel.Text = "Calculation Details\r\n\r\n\r\n";
-            // 
-            // SubTotalLabel
-            // 
-            this.SubTotalLabel.AutoSize = true;
-            this.SubTotalLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SubTotalLabel.Location = new System.Drawing.Point(16, 41);
-            this.SubTotalLabel.Name = "SubTotalLabel";
-            this.SubTotalLabel.Size = new System.Drawing.Size(64, 17);
-            this.SubTotalLabel.TabIndex = 8;
-            this.SubTotalLabel.Text = "Sub Total";
-            // 
-            // discountLabel
-            // 
-            this.discountLabel.AutoSize = true;
-            this.discountLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.discountLabel.Location = new System.Drawing.Point(16, 71);
-            this.discountLabel.Name = "discountLabel";
-            this.discountLabel.Size = new System.Drawing.Size(84, 17);
-            this.discountLabel.TabIndex = 9;
-            this.discountLabel.Text = "Discount (%)\r\n";
-            // 
-            // vatLabel
-            // 
-            this.vatLabel.AutoSize = true;
-            this.vatLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.vatLabel.Location = new System.Drawing.Point(16, 105);
-            this.vatLabel.Name = "vatLabel";
-            this.vatLabel.Size = new System.Drawing.Size(53, 17);
-            this.vatLabel.TabIndex = 10;
-            this.vatLabel.Text = "VAT (%)";
-            // 
-            // grandLabel
-            // 
-            this.grandLabel.AutoSize = true;
-            this.grandLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grandLabel.Location = new System.Drawing.Point(16, 143);
-            this.grandLabel.Name = "grandLabel";
-            this.grandLabel.Size = new System.Drawing.Size(78, 17);
-            this.grandLabel.TabIndex = 11;
-            this.grandLabel.Text = "Grand Total";
-            // 
-            // paidAmountlabel
-            // 
-            this.paidAmountlabel.AutoSize = true;
-            this.paidAmountlabel.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.paidAmountlabel.Location = new System.Drawing.Point(16, 181);
-            this.paidAmountlabel.Name = "paidAmountlabel";
-            this.paidAmountlabel.Size = new System.Drawing.Size(88, 17);
-            this.paidAmountlabel.TabIndex = 12;
-            this.paidAmountlabel.Text = "Paid Amount";
-            // 
-            // returnAmountLabel
-            // 
-            this.returnAmountLabel.AutoSize = true;
-            this.returnAmountLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.returnAmountLabel.Location = new System.Drawing.Point(16, 216);
-            this.returnAmountLabel.Name = "returnAmountLabel";
-            this.returnAmountLabel.Size = new System.Drawing.Size(103, 17);
-            this.returnAmountLabel.TabIndex = 13;
-            this.returnAmountLabel.Text = "Return Amount";
-            // 
-            // subTotalTextBox
-            // 
-            this.subTotalTextBox.Location = new System.Drawing.Point(125, 31);
-            this.subTotalTextBox.Multiline = true;
-            this.subTotalTextBox.Name = "subTotalTextBox";
-            this.subTotalTextBox.ReadOnly = true;
-            this.subTotalTextBox.Size = new System.Drawing.Size(249, 27);
-            this.subTotalTextBox.TabIndex = 14;
-            // 
-            // discountTextBox
-            // 
-            this.discountTextBox.Location = new System.Drawing.Point(125, 71);
-            this.discountTextBox.Multiline = true;
-            this.discountTextBox.Name = "discountTextBox";
-            this.discountTextBox.Size = new System.Drawing.Size(249, 27);
-            this.discountTextBox.TabIndex = 15;
-            // 
-            // VatTextBox
-            // 
-            this.VatTextBox.Location = new System.Drawing.Point(125, 105);
-            this.VatTextBox.Multiline = true;
-            this.VatTextBox.Name = "VatTextBox";
-            this.VatTextBox.Size = new System.Drawing.Size(249, 27);
-            this.VatTextBox.TabIndex = 16;
-            // 
-            // grandTotalTextBox
-            // 
-            this.grandTotalTextBox.Location = new System.Drawing.Point(125, 138);
-            this.grandTotalTextBox.Multiline = true;
-            this.grandTotalTextBox.Name = "grandTotalTextBox";
-            this.grandTotalTextBox.ReadOnly = true;
-            this.grandTotalTextBox.Size = new System.Drawing.Size(249, 27);
-            this.grandTotalTextBox.TabIndex = 17;
-            // 
-            // PaidAmountTextBox
-            // 
-            this.PaidAmountTextBox.Location = new System.Drawing.Point(125, 171);
-            this.PaidAmountTextBox.Multiline = true;
-            this.PaidAmountTextBox.Name = "PaidAmountTextBox";
-            this.PaidAmountTextBox.Size = new System.Drawing.Size(249, 27);
-            this.PaidAmountTextBox.TabIndex = 18;
+            this.saveButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(98)))), ((int)(((byte)(7)))));
+            this.saveButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.saveButton.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.saveButton.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.saveButton.Location = new System.Drawing.Point(405, 196);
+            this.saveButton.Name = "saveButton";
+            this.saveButton.Size = new System.Drawing.Size(130, 51);
+            this.saveButton.TabIndex = 48;
+            this.saveButton.Text = "&SAVE";
+            this.saveButton.UseVisualStyleBackColor = false;
             // 
             // ReturnAmountTextBox
             // 
@@ -559,18 +462,116 @@
             this.ReturnAmountTextBox.TabIndex = 19;
             this.ReturnAmountTextBox.TextChanged += new System.EventHandler(this.ReturnAmountTextBox_TextChanged);
             // 
-            // saveButton
+            // PaidAmountTextBox
             // 
-            this.saveButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(98)))), ((int)(((byte)(7)))));
-            this.saveButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.saveButton.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.saveButton.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.saveButton.Location = new System.Drawing.Point(405, 196);
-            this.saveButton.Name = "saveButton";
-            this.saveButton.Size = new System.Drawing.Size(130, 51);
-            this.saveButton.TabIndex = 48;
-            this.saveButton.Text = "&SAVE";
-            this.saveButton.UseVisualStyleBackColor = false;
+            this.PaidAmountTextBox.Location = new System.Drawing.Point(125, 171);
+            this.PaidAmountTextBox.Multiline = true;
+            this.PaidAmountTextBox.Name = "PaidAmountTextBox";
+            this.PaidAmountTextBox.Size = new System.Drawing.Size(249, 27);
+            this.PaidAmountTextBox.TabIndex = 18;
+            // 
+            // grandTotalTextBox
+            // 
+            this.grandTotalTextBox.Location = new System.Drawing.Point(125, 138);
+            this.grandTotalTextBox.Multiline = true;
+            this.grandTotalTextBox.Name = "grandTotalTextBox";
+            this.grandTotalTextBox.ReadOnly = true;
+            this.grandTotalTextBox.Size = new System.Drawing.Size(249, 27);
+            this.grandTotalTextBox.TabIndex = 17;
+            // 
+            // VatTextBox
+            // 
+            this.VatTextBox.Location = new System.Drawing.Point(125, 105);
+            this.VatTextBox.Multiline = true;
+            this.VatTextBox.Name = "VatTextBox";
+            this.VatTextBox.Size = new System.Drawing.Size(249, 27);
+            this.VatTextBox.TabIndex = 16;
+            // 
+            // discountTextBox
+            // 
+            this.discountTextBox.Location = new System.Drawing.Point(125, 71);
+            this.discountTextBox.Multiline = true;
+            this.discountTextBox.Name = "discountTextBox";
+            this.discountTextBox.Size = new System.Drawing.Size(249, 27);
+            this.discountTextBox.TabIndex = 15;
+            // 
+            // subTotalTextBox
+            // 
+            this.subTotalTextBox.Location = new System.Drawing.Point(125, 31);
+            this.subTotalTextBox.Multiline = true;
+            this.subTotalTextBox.Name = "subTotalTextBox";
+            this.subTotalTextBox.ReadOnly = true;
+            this.subTotalTextBox.Size = new System.Drawing.Size(249, 27);
+            this.subTotalTextBox.TabIndex = 14;
+            // 
+            // returnAmountLabel
+            // 
+            this.returnAmountLabel.AutoSize = true;
+            this.returnAmountLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.returnAmountLabel.Location = new System.Drawing.Point(16, 216);
+            this.returnAmountLabel.Name = "returnAmountLabel";
+            this.returnAmountLabel.Size = new System.Drawing.Size(103, 17);
+            this.returnAmountLabel.TabIndex = 13;
+            this.returnAmountLabel.Text = "Return Amount";
+            // 
+            // paidAmountlabel
+            // 
+            this.paidAmountlabel.AutoSize = true;
+            this.paidAmountlabel.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.paidAmountlabel.Location = new System.Drawing.Point(16, 181);
+            this.paidAmountlabel.Name = "paidAmountlabel";
+            this.paidAmountlabel.Size = new System.Drawing.Size(88, 17);
+            this.paidAmountlabel.TabIndex = 12;
+            this.paidAmountlabel.Text = "Paid Amount";
+            // 
+            // grandLabel
+            // 
+            this.grandLabel.AutoSize = true;
+            this.grandLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grandLabel.Location = new System.Drawing.Point(16, 143);
+            this.grandLabel.Name = "grandLabel";
+            this.grandLabel.Size = new System.Drawing.Size(78, 17);
+            this.grandLabel.TabIndex = 11;
+            this.grandLabel.Text = "Grand Total";
+            // 
+            // vatLabel
+            // 
+            this.vatLabel.AutoSize = true;
+            this.vatLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.vatLabel.Location = new System.Drawing.Point(16, 105);
+            this.vatLabel.Name = "vatLabel";
+            this.vatLabel.Size = new System.Drawing.Size(53, 17);
+            this.vatLabel.TabIndex = 10;
+            this.vatLabel.Text = "VAT (%)";
+            // 
+            // discountLabel
+            // 
+            this.discountLabel.AutoSize = true;
+            this.discountLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.discountLabel.Location = new System.Drawing.Point(16, 71);
+            this.discountLabel.Name = "discountLabel";
+            this.discountLabel.Size = new System.Drawing.Size(84, 17);
+            this.discountLabel.TabIndex = 9;
+            this.discountLabel.Text = "Discount (%)\r\n";
+            // 
+            // SubTotalLabel
+            // 
+            this.SubTotalLabel.AutoSize = true;
+            this.SubTotalLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SubTotalLabel.Location = new System.Drawing.Point(16, 41);
+            this.SubTotalLabel.Name = "SubTotalLabel";
+            this.SubTotalLabel.Size = new System.Drawing.Size(64, 17);
+            this.SubTotalLabel.TabIndex = 8;
+            this.SubTotalLabel.Text = "Sub Total";
+            // 
+            // Calculationlabel
+            // 
+            this.Calculationlabel.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Calculationlabel.Location = new System.Drawing.Point(14, 0);
+            this.Calculationlabel.Name = "Calculationlabel";
+            this.Calculationlabel.Size = new System.Drawing.Size(129, 17);
+            this.Calculationlabel.TabIndex = 4;
+            this.Calculationlabel.Text = "Calculation Details\r\n\r\n\r\n";
             // 
             // PurchaseSalesForm
             // 
@@ -587,6 +588,7 @@
             this.Name = "PurchaseSalesForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Purchase and Sales";
+            this.Load += new System.EventHandler(this.PurchaseSalesForm_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxClose)).EndInit();
@@ -595,9 +597,9 @@
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.addedProductpanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -609,7 +611,7 @@
         private System.Windows.Forms.Label purchaseAndSalesLabel;
         private System.Windows.Forms.Panel dealerCustomerpanel;
         private System.Windows.Forms.Label billLabel;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox addressTextBox;
         private System.Windows.Forms.Label addressLabel;
         private System.Windows.Forms.TextBox contactTextBox;
         private System.Windows.Forms.TextBox EmailTextBox;
@@ -623,15 +625,15 @@
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox productSearchTextBox;
         private System.Windows.Forms.Label productNameLabel;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox ProductNametextBox;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox qtytextBox;
         private System.Windows.Forms.Label qtyLabel;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox ratetextBox;
         private System.Windows.Forms.Label rateLabel;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox InvertorytextBox;
         private System.Windows.Forms.Label InvetoryLabel;
         private System.Windows.Forms.Button AddButton;
         private System.Windows.Forms.Panel addedProductpanel;

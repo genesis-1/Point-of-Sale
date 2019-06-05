@@ -206,5 +206,52 @@ namespace PosApp.DAL
             return dataTable;
         }
         #endregion
+        #region Method to search Dealer or customer for transaction module
+        public DealerAndCustomerLL SearchDealerCustomerForTransaction(string keyWord)
+        {
+            //create an object for DealerCustomer class
+            DealerAndCustomerLL dealerAndCustomer = new DealerAndCustomerLL();
+
+            SqlConnection connection = new SqlConnection(myconnectionstring);
+
+            //create a dataTable to hold the value temporily
+            DataTable dataTable = new DataTable();
+
+            try
+            {
+                string sql = "select name,email,contact,address from DealerCustomers where Id like '%" + keyWord + "%' or name like '%" + keyWord + "%'";
+
+                //create SqlData adapter to execute the Query
+
+                SqlDataAdapter dataAdapter = new SqlDataAdapter(sql, connection);
+
+                connection.Open();
+
+                //Transfer the data from sqlData adapter to Data table
+                dataAdapter.Fill(dataTable);
+
+                // if we hava values on datatable we need to save it in dealerCustomerBLL
+
+                if (dataTable.Rows.Count > 0)
+                {
+                    dealerAndCustomer.Name = dataTable.Rows[0]["name"].ToString();
+                    dealerAndCustomer.Email = dataTable.Rows[0]["email"].ToString();
+                    dealerAndCustomer.Contact = dataTable.Rows[0]["contact"].ToString();
+                    dealerAndCustomer.Addresss = dataTable.Rows[0]["address"].ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return dealerAndCustomer;
+        }
+        #endregion
     }
 }

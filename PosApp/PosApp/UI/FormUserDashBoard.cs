@@ -18,6 +18,10 @@ namespace PosApp.UI
             InitializeComponent();
         }
 
+        //create a static method to specify wether the form is Sales or Purchase
+        public static string transactionType;
+
+
         private void Label4_Click(object sender, EventArgs e)
         {
 
@@ -43,14 +47,20 @@ namespace PosApp.UI
 
         private void PurchaseToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            //set the value on transactionType static method
+            transactionType = "Purchase";
             PurchaseSalesForm purchaseSales = new PurchaseSalesForm();
             purchaseSales.Show();
+           
         }
 
         private void SalesFormsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            PurchaseSalesForm purchaseSales = new PurchaseSalesForm();
-            purchaseSales.Show();
+            //set the value on transactionType static method
+            transactionType = "Sales";
+            PurchaseSalesForm sales = new PurchaseSalesForm();
+            sales.Show();
+            
         }
     }
 }
