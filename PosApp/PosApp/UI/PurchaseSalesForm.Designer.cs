@@ -61,7 +61,7 @@
             this.InvetoryLabel = new System.Windows.Forms.Label();
             this.addedProductpanel = new System.Windows.Forms.Panel();
             this.addedProductslabel = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.transactionDataGridView1 = new System.Windows.Forms.DataGridView();
             this.panel4 = new System.Windows.Forms.Panel();
             this.saveButton = new System.Windows.Forms.Button();
             this.ReturnAmountTextBox = new System.Windows.Forms.TextBox();
@@ -82,7 +82,7 @@
             this.dealerCustomerpanel.SuspendLayout();
             this.panel2.SuspendLayout();
             this.addedProductpanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.transactionDataGridView1)).BeginInit();
             this.panel4.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -285,6 +285,7 @@
             this.productSearchTextBox.Name = "productSearchTextBox";
             this.productSearchTextBox.Size = new System.Drawing.Size(163, 27);
             this.productSearchTextBox.TabIndex = 6;
+            this.productSearchTextBox.TextChanged += new System.EventHandler(this.ProductSearchTextBox_TextChanged);
             // 
             // productNameLabel
             // 
@@ -335,6 +336,7 @@
             this.AddButton.TabIndex = 47;
             this.AddButton.Text = "&Add";
             this.AddButton.UseVisualStyleBackColor = false;
+            this.AddButton.Click += new System.EventHandler(this.AddButton_Click);
             // 
             // qtytextBox
             // 
@@ -393,7 +395,7 @@
             // addedProductpanel
             // 
             this.addedProductpanel.Controls.Add(this.addedProductslabel);
-            this.addedProductpanel.Controls.Add(this.dataGridView1);
+            this.addedProductpanel.Controls.Add(this.transactionDataGridView1);
             this.addedProductpanel.Location = new System.Drawing.Point(13, 242);
             this.addedProductpanel.Name = "addedProductpanel";
             this.addedProductpanel.Size = new System.Drawing.Size(614, 262);
@@ -408,13 +410,13 @@
             this.addedProductslabel.TabIndex = 3;
             this.addedProductslabel.Text = "Added Products\r\n\r\n";
             // 
-            // dataGridView1
+            // transactionDataGridView1
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(5, 30);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(606, 229);
-            this.dataGridView1.TabIndex = 0;
+            this.transactionDataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.transactionDataGridView1.Location = new System.Drawing.Point(5, 30);
+            this.transactionDataGridView1.Name = "transactionDataGridView1";
+            this.transactionDataGridView1.Size = new System.Drawing.Size(606, 229);
+            this.transactionDataGridView1.TabIndex = 0;
             // 
             // panel4
             // 
@@ -469,6 +471,7 @@
             this.PaidAmountTextBox.Name = "PaidAmountTextBox";
             this.PaidAmountTextBox.Size = new System.Drawing.Size(249, 27);
             this.PaidAmountTextBox.TabIndex = 18;
+            this.PaidAmountTextBox.TextChanged += new System.EventHandler(this.PaidAmountTextBox_TextChanged);
             // 
             // grandTotalTextBox
             // 
@@ -486,6 +489,7 @@
             this.VatTextBox.Name = "VatTextBox";
             this.VatTextBox.Size = new System.Drawing.Size(249, 27);
             this.VatTextBox.TabIndex = 16;
+            this.VatTextBox.TextChanged += new System.EventHandler(this.VatTextBox_TextChanged);
             // 
             // discountTextBox
             // 
@@ -494,6 +498,7 @@
             this.discountTextBox.Name = "discountTextBox";
             this.discountTextBox.Size = new System.Drawing.Size(249, 27);
             this.discountTextBox.TabIndex = 15;
+            this.discountTextBox.TextChanged += new System.EventHandler(this.DiscountTextBox_TextChanged);
             // 
             // subTotalTextBox
             // 
@@ -503,6 +508,7 @@
             this.subTotalTextBox.ReadOnly = true;
             this.subTotalTextBox.Size = new System.Drawing.Size(249, 27);
             this.subTotalTextBox.TabIndex = 14;
+            this.subTotalTextBox.Text = "0\r\n";
             // 
             // returnAmountLabel
             // 
@@ -597,7 +603,7 @@
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.addedProductpanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.transactionDataGridView1)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.ResumeLayout(false);
@@ -638,7 +644,7 @@
         private System.Windows.Forms.Button AddButton;
         private System.Windows.Forms.Panel addedProductpanel;
         private System.Windows.Forms.Label addedProductslabel;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView transactionDataGridView1;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.TextBox ReturnAmountTextBox;
         private System.Windows.Forms.TextBox PaidAmountTextBox;

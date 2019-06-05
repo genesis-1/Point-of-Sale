@@ -206,6 +206,51 @@ namespace PosApp.DAL
             return dataTable;
         }
         #endregion
-        
+
+        #region Methd to search Product in transaction MOdule
+        public ProductLL GetProductLLForTransactionModule(string keyword)
+        {
+            ProductLL productLL = new ProductLL();
+            SqlConnection connection = new SqlConnection(myconnectionstring);
+
+            //create a dataTable to hold the value temporily
+            DataTable dataTable = new DataTable();
+
+            try
+            {
+                string sql = "select name,rate,qty from Products where Id like '%" + keyword + "%' or name like '%" + keyword + "%'";
+
+                //create SqlData adapter to execute the Query
+
+                SqlDataAdapter dataAdapter = new SqlDataAdapter(sql, connection);
+
+                connection.Open();
+
+                //Transfer the data from sqlData adapter to Data table
+                dataAdapter.Fill(dataTable);
+
+                // if we hava values on datatable we need to save it in dealerCustomerBLL
+
+                if (dataTable.Rows.Count > 0)
+                {
+                    productLL.Name = dataTable.Rows[0]["name"].ToString();
+                    productLL.rate = decimal.Parse( dataTable.Rows[0]["rate"].ToString());
+                    productLL.qty = decimal.Parse(dataTable.Rows[0]["qty"].ToString());
+                   // dealerAndCustomer.Addresss = dataTable.Rows[0]["address"].ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return productLL;
+        }
+        #endregion
+
     }
 }
