@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,5 +24,7 @@ namespace PosApp.Bussiness
         public decimal Discount { get; set; }
 
         public int AddedBy { get; set; }
+
+        public DataTable TransactionDetails { get; set; }
     }
 }

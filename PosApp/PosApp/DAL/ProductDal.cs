@@ -251,6 +251,49 @@ namespace PosApp.DAL
             return productLL;
         }
         #endregion
+        #region METHOD TO GET ID BASED ON PRODUCT
+        public ProductLL GetProductIdFromName(string keyWord)
+        {
+            ProductLL productLL = new ProductLL();
+
+            SqlConnection connection = new SqlConnection(myconnectionstring);
+
+            //create a dataTable to hold the value temporily
+            DataTable dataTable = new DataTable();
+
+            try
+            {
+                string sql = "select id from Products where name = '" + keyWord + "'";
+
+                //create SqlData adapter to execute the Query
+
+                SqlDataAdapter dataAdapter = new SqlDataAdapter(sql, connection);
+
+                connection.Open();
+
+                //Transfer the data from sqlData adapter to Data table
+                dataAdapter.Fill(dataTable);
+
+                // if we hava values on datatable we need to save it in dealerCustomerBLL
+
+                if (dataTable.Rows.Count > 0)
+                {
+                    productLL.Id = int.Parse(dataTable.Rows[0]["Id"].ToString());
+
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return productLL;
+        }
+        #endregion
 
     }
 }

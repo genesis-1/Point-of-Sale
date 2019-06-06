@@ -1,5 +1,6 @@
 ﻿using PosApp.Bussiness;
 using PosApp.DAL;
+using PosApp.Login;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,6 +9,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Transactions;
 using System.Windows.Forms;
 
 namespace PosApp.UI
@@ -22,6 +24,9 @@ namespace PosApp.UI
         DealerCustomerDal dealerCustomerDal = new DealerCustomerDal();
         ProductDal productDal = new ProductDal();
         DataTable transactionDataTable = new DataTable();
+        UserDal user = new UserDal();
+        TransactionDal transactionDal = new TransactionDal();
+        TransactionDetailDal transactionDetailDal = new TransactionDetailDal();
 
         private void PictureBoxClose_Click(object sender, EventArgs e)
         {
@@ -64,7 +69,7 @@ namespace PosApp.UI
             purchaseAndSalesLabel.Text = transactiontype;
 
             // specify columns for our TransactionDataTable
-            transactionDataTable.Columns.Add("Product Name");
+            transactionDataTable.Columns.Add("Name");
             transactionDataTable.Columns.Add("Rate");
             transactionDataTable.Columns.Add("Qty");
             transactionDataTable.Columns.Add("Total");
@@ -214,6 +219,107 @@ namespace PosApp.UI
             //Display the Returned Amount
 
             ReturnAmountTextBox.Text = returnAmount.ToString();
+
+        }
+
+        private void SaveButton_Click(object sender, EventArgs e)
+        {
+            //get the values from purchase and sales form
+            TransactionLL transaction = new TransactionLL();
+            transaction.Type = purchaseAndSalesLabel.Text;
+
+            //get The ID of Dealer or customer Here
+            //lets get name of the Dealer or customer first
+            string dealerCustomerName = nameTextBox.Text.Trim();
+            DealerAndCustomerLL dealerAndCustomer = dealerCustomerDal.GetCustomerIdFromName(dealerCustomerName);
+
+            transaction.DealerCustomerId = dealerAndCustomer.Id;
+            transaction.GrandTotal = Math.Round(decimal.Parse(grandTotalTextBox.Text),2);
+            transaction.TransactionDate = DateTime.Now;
+            transaction.Tax = decimal.Parse(VatTextBox.Text);
+            transaction.Discount = decimal.Parse(discountTextBox.Text);
+            // get the userName of logged in user
+            string userName = LoginForm.loggedInUser;
+            UserLL userLL = user.GetIDFromUserName(userName);
+            transaction.AddedBy = userLL.Id;
+            transaction.TransactionDetails = transactionDataTable;
+
+            bool success = false;
+
+            //actual code to insert Transaction and Transaction Details
+
+            using(TransactionScope scope = new TransactionScope())
+            {
+                int transactionID = -1;
+                //create a boolean value and insert Transaction
+                bool isInsertTransaction = transactionDal.InsertTransaction(transaction,out transactionID);
+
+                //use forLoop to insert Transaction Details.
+                for(int i = 0; i < transactionDataTable.Rows.Count; i++)
+                {
+                    //get all details of the Product
+                    TransactionDetailLL detailLL = new TransactionDetailLL();
+                    //get the Product name and convert it to id
+                    string ProductName = transactionDataTable.Rows[i][0].ToString().Trim()
+                        ;
+                    ProductLL product = productDal.GetProductIdFromName(ProductName);
+                    detailLL.ProductId = product.Id;
+                    detailLL.Rate = decimal.Parse(transactionDataTable.Rows[i][1].ToString());
+                    detailLL.Qty = decimal.Parse(transactionDataTable.Rows[i][2].ToString());
+                    detailLL.Total = Math.Round(decimal.Parse(transactionDataTable.Rows[i][3].ToString()),2);
+                    detailLL.DealerCustomerId = dealerAndCustomer.Id;
+                    detailLL.AddedDate = DateTime.Now;
+                    detailLL.AddedBy = userLL.Id;
+                    // insert Transaction Details inside the DataBase
+                    bool isInsertTransactioDetail = transactionDetailDal.InsertTransactionDetail(detailLL);
+                    success = isInsertTransaction && isInsertTransactioDetail;
+
+                }
+                
+                if (success == true)
+                {
+                    //transaction Completed
+                    
+                    MessageBox.Show("Transaction Completed SuccessFully");
+
+                    //clear the data Grid View and clear all the TextBoxes
+                    transactionDataGridView1.DataSource = null;
+                    transactionDataGridView1.Rows.Clear();
+                    searchTextBox.Text = "";
+                    ProductNametextBox.Text = "";
+                    InvertorytextBox.Text = "";
+                    ratetextBox.Text = "";
+                    qtytextBox.Text = "";
+                    productSearchTextBox.Text = "";
+                    ProductNametextBox.Text = "";
+                    InvertorytextBox.Text = "0.00";
+                    ratetextBox.Text = "0.00";
+                    qtytextBox.Text = "0.00";
+                    subTotalTextBox.Text = "";
+                    discountTextBox.Text = "0";
+                    VatTextBox.Text = "";
+                    grandTotalTextBox.Text = "0.00";
+                    PaidAmountTextBox.Text = "0.00";
+                    ReturnAmountTextBox.Text = "0.00";
+                    scope.Complete();
+                }
+                else
+                {
+                    MessageBox.Show("Transaction Failed");
+                }
+
+            }
+
+
+        }
+
+        private void TransactionDataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void DealerCustomerpanel_Paint(object sender, PaintEventArgs e)
+        {
 
         }
     }

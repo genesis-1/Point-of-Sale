@@ -25,14 +25,14 @@ namespace PosApp.DAL
             try
             {
                 string sql = "insert into Transactions(type,DealerCustomerId,grandTotal,TransactionDate,tax,discount,addedBy)" +
-                                          "values(@type,@DealerCustomerId,@grandTotal,@TransactionDate,@tax,@discount,@addedBy)";
+                                          "values(@type,@DealerCustomerId,@grandTotal,@TransactionDate,@tax,@discount,@addedBy);select @@IDENTITY;";
                 SqlCommand command = new SqlCommand(sql, connection);
                 command.Parameters.AddWithValue("@type", transactionLL.Type);
                 command.Parameters.AddWithValue("@DealerCustomerId", transactionLL.DealerCustomerId);
-                command.Parameters.AddWithValue(" @grandTotal", transactionLL.GrandTotal);
+                command.Parameters.AddWithValue("@grandTotal", transactionLL.GrandTotal);
                 command.Parameters.AddWithValue("@TransactionDate", transactionLL.TransactionDate);
-                command.Parameters.AddWithValue(" @tax", transactionLL.Tax);
-                command.Parameters.AddWithValue(" @discount", transactionLL.Discount);
+                command.Parameters.AddWithValue("@tax", transactionLL.Tax);
+                command.Parameters.AddWithValue("@discount", transactionLL.Discount);
                 command.Parameters.AddWithValue("@addedBy", transactionLL.AddedBy);
                 connection.Open();
                 /*
@@ -62,6 +62,7 @@ namespace PosApp.DAL
             {
 
                 MessageBox.Show(ex.Message);
+                Console.Write(ex);
             }
             finally
             {

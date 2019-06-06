@@ -22,7 +22,7 @@ namespace PosApp.DAL
             try
             {
                 string sql = "insert into TransactionDetails(productId,rate,qty,total,dealerCustomerId,addedDate,addedBy)" +
-                             "values(@productId,@rate,@qty,@total,@dealerCustomerId,@addedDate,@addedBy)";
+                             "values(@productId,@rate,@qty,@total,@dealerCustomerId,@addedDate,@addedBy);select @@IDENTITY;";
                 SqlCommand command = new SqlCommand(sql, connection);
                 command.Parameters.AddWithValue("@productId",transactionDetail.ProductId);
                 command.Parameters.AddWithValue("@rate", transactionDetail.Rate);
@@ -39,6 +39,8 @@ namespace PosApp.DAL
                 if (rows > 0)
                 {
                     isSuccess = true;
+                   // MessageBox.Show("");
+
                 }
                 else
                 {
@@ -50,6 +52,7 @@ namespace PosApp.DAL
             {
 
                 MessageBox.Show(ex.Message);
+                Console.Write(ex);
             }
             finally
             {

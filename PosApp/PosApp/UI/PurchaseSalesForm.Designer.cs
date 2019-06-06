@@ -139,6 +139,7 @@
             this.dealerCustomerpanel.Name = "dealerCustomerpanel";
             this.dealerCustomerpanel.Size = new System.Drawing.Size(1233, 92);
             this.dealerCustomerpanel.TabIndex = 2;
+            this.dealerCustomerpanel.Paint += new System.Windows.Forms.PaintEventHandler(this.DealerCustomerpanel_Paint);
             // 
             // billLabel
             // 
@@ -417,6 +418,7 @@
             this.transactionDataGridView1.Name = "transactionDataGridView1";
             this.transactionDataGridView1.Size = new System.Drawing.Size(606, 229);
             this.transactionDataGridView1.TabIndex = 0;
+            this.transactionDataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.TransactionDataGridView1_CellContentClick);
             // 
             // panel4
             // 
@@ -451,6 +453,7 @@
             this.saveButton.TabIndex = 48;
             this.saveButton.Text = "&SAVE";
             this.saveButton.UseVisualStyleBackColor = false;
+            this.saveButton.Click += new System.EventHandler(this.SaveButton_Click);
             // 
             // ReturnAmountTextBox
             // 

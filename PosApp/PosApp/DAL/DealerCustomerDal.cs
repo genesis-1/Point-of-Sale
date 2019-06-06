@@ -253,5 +253,50 @@ namespace PosApp.DAL
             return dealerAndCustomer;
         }
         #endregion
+        #region Method to get the ID of dealer and customer Based on Name
+        public DealerAndCustomerLL GetCustomerIdFromName(string keyWord)
+        {
+            DealerAndCustomerLL dealerAndCustomer = new DealerAndCustomerLL();
+
+            SqlConnection connection = new SqlConnection(myconnectionstring);
+
+            //create a dataTable to hold the value temporily
+            DataTable dataTable = new DataTable();
+
+            try
+            {
+                string sql = "select id from DealerCustomers where  name = '"+keyWord+"'";
+
+                //create SqlData adapter to execute the Query
+
+                SqlDataAdapter dataAdapter = new SqlDataAdapter(sql, connection);
+
+                connection.Open();
+
+                //Transfer the data from sqlData adapter to Data table
+                dataAdapter.Fill(dataTable);
+
+                // if we hava values on datatable we need to save it in dealerCustomerBLL
+
+                if (dataTable.Rows.Count > 0)
+                {
+                    dealerAndCustomer.Id = int.Parse(dataTable.Rows[0]["Id"].ToString());
+                    
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return dealerAndCustomer;
+        }
+        
+
+        #endregion
     }
 }
