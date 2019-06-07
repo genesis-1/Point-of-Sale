@@ -36,12 +36,12 @@
             this.productsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.invetoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.transactionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dealerAndCustomersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lblUser = new System.Windows.Forms.Label();
             this.loggedInUser = new System.Windows.Forms.Label();
             this.ibiAppFName = new System.Windows.Forms.Label();
             this.ibiLastName = new System.Windows.Forms.Label();
             this.ibiSHead = new System.Windows.Forms.Label();
-            this.dealerAndCustomersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panelFooter.SuspendLayout();
             this.menuStripTop.SuspendLayout();
             this.SuspendLayout();
@@ -117,8 +117,16 @@
             // transactionsToolStripMenuItem
             // 
             this.transactionsToolStripMenuItem.Name = "transactionsToolStripMenuItem";
-            this.transactionsToolStripMenuItem.Size = new System.Drawing.Size(83, 20);
-            this.transactionsToolStripMenuItem.Text = "transactions";
+            this.transactionsToolStripMenuItem.Size = new System.Drawing.Size(85, 20);
+            this.transactionsToolStripMenuItem.Text = "Transactions";
+            this.transactionsToolStripMenuItem.Click += new System.EventHandler(this.TransactionsToolStripMenuItem_Click);
+            // 
+            // dealerAndCustomersToolStripMenuItem
+            // 
+            this.dealerAndCustomersToolStripMenuItem.Name = "dealerAndCustomersToolStripMenuItem";
+            this.dealerAndCustomersToolStripMenuItem.Size = new System.Drawing.Size(135, 20);
+            this.dealerAndCustomersToolStripMenuItem.Text = "Dealer and Customers";
+            this.dealerAndCustomersToolStripMenuItem.Click += new System.EventHandler(this.DealerAndCustomersToolStripMenuItem_Click);
             // 
             // lblUser
             // 
@@ -178,13 +186,6 @@
             this.ibiSHead.Size = new System.Drawing.Size(239, 25);
             this.ibiSHead.TabIndex = 16;
             this.ibiSHead.Text = "Point of Sale Management ";
-            // 
-            // dealerAndCustomersToolStripMenuItem
-            // 
-            this.dealerAndCustomersToolStripMenuItem.Name = "dealerAndCustomersToolStripMenuItem";
-            this.dealerAndCustomersToolStripMenuItem.Size = new System.Drawing.Size(135, 20);
-            this.dealerAndCustomersToolStripMenuItem.Text = "Dealer and Customers";
-            this.dealerAndCustomersToolStripMenuItem.Click += new System.EventHandler(this.DealerAndCustomersToolStripMenuItem_Click);
             // 
             // AdminDashBoard
             // 

@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -69,6 +70,60 @@ namespace PosApp.DAL
                 connection.Close();
             }
             return isSuccess;
+        }
+        #endregion
+        #region Method to Display all the Transaction
+        public DataTable DisplayAllTransaction()
+        {
+            DataTable dataTable = new DataTable();
+            SqlConnection connection = new SqlConnection(myConnectionString);
+
+            try
+            {
+                string sql = "select * from Transactions";
+
+                SqlCommand command = new SqlCommand(sql, connection);
+                SqlDataAdapter adapter = new SqlDataAdapter(command);
+                connection.Open();
+                adapter.Fill(dataTable);
+
+                    }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return dataTable;
+        }
+        #endregion
+        #region Method to display transaction based on the transactionType
+        public DataTable DisplayTransactionByType(string type)
+        {
+            SqlConnection connection = new SqlConnection(myConnectionString);
+            DataTable dataTable = new DataTable();
+            try
+            {
+                string sql = "select * from Transactions where type = '" + type + "'";
+                SqlCommand command = new SqlCommand(sql, connection);
+
+                SqlDataAdapter adapter = new SqlDataAdapter(command);
+                adapter.Fill(dataTable);
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return dataTable;
         }
         #endregion
     }

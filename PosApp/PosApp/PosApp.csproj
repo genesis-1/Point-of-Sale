@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{644D7548-AA9C-47CE-94CD-F9BD63D42532}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <OutputType>WinExe</OutputType>
     <RootNamespace>PosApp</RootNamespace>
     <AssemblyName>PosApp</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
@@ -120,6 +120,12 @@
     <Compile Include="UI\PurchaseSalesForm.Designer.cs">
       <DependentUpon>PurchaseSalesForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\TransactonForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\TransactonForm.Designer.cs">
+      <DependentUpon>TransactonForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\UsersForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -154,6 +160,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\PurchaseSalesForm.resx">
       <DependentUpon>PurchaseSalesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\TransactonForm.resx">
+      <DependentUpon>TransactonForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\UsersForm.resx">
       <DependentUpon>UsersForm.cs</DependentUpon>
