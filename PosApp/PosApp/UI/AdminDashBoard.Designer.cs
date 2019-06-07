@@ -113,6 +113,7 @@
             this.invetoryToolStripMenuItem.Name = "invetoryToolStripMenuItem";
             this.invetoryToolStripMenuItem.Size = new System.Drawing.Size(62, 20);
             this.invetoryToolStripMenuItem.Text = "invetory";
+            this.invetoryToolStripMenuItem.Click += new System.EventHandler(this.InvetoryToolStripMenuItem_Click);
             // 
             // transactionsToolStripMenuItem
             // 

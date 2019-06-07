@@ -62,5 +62,11 @@ namespace PosApp.UI
             sales.Show();
             
         }
+
+        private void InventoryToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            InventoryForm inventory = new InventoryForm();
+            inventory.Show();
+        }
     }
 }

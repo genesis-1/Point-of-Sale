@@ -429,6 +429,35 @@ namespace PosApp.DAL
             return success;
         }
         #endregion
+        #region Display Region Based ON Categories
+        public DataTable DisplayProductsByCategory(String category)
+        {
+            SqlConnection sqlConnection = new SqlConnection(myconnectionstring);
 
+            DataTable dataTable = new DataTable();
+
+            try
+            {
+                string sql = "select * from Products where category = '" + category + "'";
+                SqlCommand command = new SqlCommand(sql, sqlConnection);
+                SqlDataAdapter adapter = new SqlDataAdapter(command);
+
+                // open the Data Base Connection
+                sqlConnection.Open();
+                adapter.Fill(dataTable);
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                sqlConnection.Close();
+            }
+            return dataTable;
+        }
+        #endregion
     }
 }

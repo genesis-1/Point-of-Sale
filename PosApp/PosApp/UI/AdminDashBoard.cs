@@ -70,5 +70,11 @@ namespace PosApp.UI
             TransactonForm transactonForm = new TransactonForm();
             transactonForm.Show();
         }
+
+        private void InvetoryToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            InventoryForm inventory = new InventoryForm();
+            inventory.Show();
+        }
     }
 }

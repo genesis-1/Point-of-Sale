@@ -58,6 +58,7 @@
     <Compile Include="Bussiness\TransactionDetailLL.cs" />
     <Compile Include="Bussiness\TransactionLL.cs" />
     <Compile Include="DAL\CategoryDal.cs" />
+    <Compile Include="DAL\DataGridViewPrint.cs" />
     <Compile Include="DAL\DealerCustomerDal.cs" />
     <Compile Include="DAL\LoginDal.cs" />
     <Compile Include="DAL\ProductDal.cs" />
@@ -93,6 +94,12 @@
     </Compile>
     <Compile Include="UI\FormUserDashBoard.Designer.cs">
       <DependentUpon>FormUserDashBoard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\InventoryForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\InventoryForm.Designer.cs">
+      <DependentUpon>InventoryForm.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\LoginForm.cs">
       <SubType>Form</SubType>
@@ -143,6 +150,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\FormUserDashBoard.resx">
       <DependentUpon>FormUserDashBoard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\InventoryForm.resx">
+      <DependentUpon>InventoryForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>

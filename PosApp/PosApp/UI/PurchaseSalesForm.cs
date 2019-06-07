@@ -1,4 +1,5 @@
-﻿using PosApp.Bussiness;
+﻿using DGVPrinterHelper;
+using PosApp.Bussiness;
 using PosApp.DAL;
 using PosApp.Login;
 using System;
@@ -317,7 +318,26 @@ namespace PosApp.UI
                 if (success == true)
                 {
                     //transaction Completed
-                    
+
+                    //code to print the bill
+                    DGVPrinter printer = new DGVPrinter();
+
+                    printer.Title = "\r\n\r\n Driib";
+                    printer.SubTitle = "Kigali, Rwanda \r\n Phone: +250 781-916-866";
+                    printer.SubTitleFormatFlags = StringFormatFlags.LineLimit | StringFormatFlags.NoClip;
+                    printer.PageNumbers = true;
+                    printer.PageNumberInHeader = false;
+                    printer.PorportionalColumns = true;
+                    printer.HeaderCellAlignment = StringAlignment.Near;
+
+                    printer.Footer = "Discount:" + discountTextBox.Text +"% \r\n" + "VAT: " + VatTextBox.Text +"% \r\n" +
+                         "Grand Total: "+ grandTotalTextBox.Text +"" + "\r\n" +"Thank Your Doing Bussiness With Us";
+                    printer.FooterSpacing = 15;
+                    printer.PrintDataGridView(transactionDataGridView1);
+
+
+
+
                     MessageBox.Show("Transaction Completed SuccessFully");
 
                     //clear the data Grid View and clear all the TextBoxes
