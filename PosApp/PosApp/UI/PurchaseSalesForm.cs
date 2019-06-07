@@ -98,9 +98,9 @@ namespace PosApp.UI
 
             //set values on textboxes
             ProductNametextBox.Text = productLL.Name;
-            //InvertorytextBox.Text = productLL.;
+            InvertorytextBox.Text = (productLL.qty).ToString();
             ratetextBox.Text = productLL.rate.ToString();
-            qtytextBox.Text = (productLL.qty).ToString();
+           
 
         }
 
@@ -108,15 +108,15 @@ namespace PosApp.UI
         {
             //Get product name,Rate and Quantity the customer wansts to buy
             string productName = ProductNametextBox.Text;
-            decimal Rate = decimal.Parse(ratetextBox.Text);
-            decimal Qty = decimal.Parse(qtytextBox.Text);
+            decimal Rate = Math.Round(decimal.Parse(ratetextBox.Text),2);
+            decimal Qty = Math.Round(decimal.Parse(qtytextBox.Text),2);
 
             //calculate Total
             decimal Total = Rate * Qty;
 
             // display the subtotal in textBox
             //get the subTotal value from textBox
-            decimal subTotal = decimal.Parse(subTotalTextBox.Text);
+            decimal subTotal = Math.Round(decimal.Parse(subTotalTextBox.Text),2);
 
             subTotal = subTotal + Total;
 
@@ -164,8 +164,8 @@ namespace PosApp.UI
             else
             {
                 //get the discount in decimal value
-                decimal subtotal = decimal.Parse(subTotalTextBox.Text);
-                decimal discount = decimal.Parse(discountTextBox.Text);
+                decimal subtotal = Math.Round(decimal.Parse(subTotalTextBox.Text),2);
+                decimal discount = Math.Round(decimal.Parse(discountTextBox.Text),2);
 
                 //calculate the grand total based on Discount
                 decimal grandTotal = ((100 - discount) / 100) * subtotal;
@@ -199,10 +199,10 @@ namespace PosApp.UI
                     grandTotalWithVat = ((100 + vat) / 100) * previousGrandTotal;
                     grandTotalTextBox.Text = grandTotalWithVat.ToString();
                 }
-                else
-                {
-                    grandTotalTextBox.Text = "";
-                }
+                //else
+                //{
+                //    grandTotalTextBox.Text = "0.00";
+                //}
                 
 
                 
@@ -211,14 +211,27 @@ namespace PosApp.UI
 
         private void PaidAmountTextBox_TextChanged(object sender, EventArgs e)
         {
-            decimal grandTotal = decimal.Parse(grandTotalTextBox.Text);
-            decimal paidAmount = decimal.Parse(PaidAmountTextBox.Text);
+            decimal grandTotal, paidAmount;
 
-            decimal returnAmount = paidAmount - grandTotal;
+            if ((decimal.TryParse(grandTotalTextBox.Text, out grandTotal)) && (decimal.TryParse(PaidAmountTextBox.Text, out paidAmount)))
+            {
+                decimal returnAmount = paidAmount - grandTotal;
+                Math.Round(returnAmount, 2);
+                ReturnAmountTextBox.Text = returnAmount.ToString();
+            }
+            //else
+            //{
+            //    grandTotalTextBox.Text = "0.00";
+            //    PaidAmountTextBox.Text = "0.00";
+            //}
+            //decimal grandTotal = decimal.Parse(grandTotalTextBox.Text);
+            //decimal paidAmount = decimal.Parse(PaidAmountTextBox.Text);
+
+            
 
             //Display the Returned Amount
 
-            ReturnAmountTextBox.Text = returnAmount.ToString();
+            
 
         }
 
@@ -236,8 +249,8 @@ namespace PosApp.UI
             transaction.DealerCustomerId = dealerAndCustomer.Id;
             transaction.GrandTotal = Math.Round(decimal.Parse(grandTotalTextBox.Text),2);
             transaction.TransactionDate = DateTime.Now;
-            transaction.Tax = decimal.Parse(VatTextBox.Text);
-            transaction.Discount = decimal.Parse(discountTextBox.Text);
+            transaction.Tax = Math.Round(decimal.Parse(VatTextBox.Text),2);
+            transaction.Discount = Math.Round(decimal.Parse(discountTextBox.Text),2);
             // get the userName of logged in user
             string userName = LoginForm.loggedInUser;
             UserLL userLL = user.GetIDFromUserName(userName);
@@ -260,19 +273,44 @@ namespace PosApp.UI
                     //get all details of the Product
                     TransactionDetailLL detailLL = new TransactionDetailLL();
                     //get the Product name and convert it to id
-                    string ProductName = transactionDataTable.Rows[i][0].ToString().Trim()
-                        ;
+                    string ProductName = transactionDataTable.Rows[i][0].ToString().Trim();
                     ProductLL product = productDal.GetProductIdFromName(ProductName);
                     detailLL.ProductId = product.Id;
-                    detailLL.Rate = decimal.Parse(transactionDataTable.Rows[i][1].ToString());
-                    detailLL.Qty = decimal.Parse(transactionDataTable.Rows[i][2].ToString());
+                    detailLL.Rate = Math.Round(decimal.Parse(transactionDataTable.Rows[i][1].ToString()),2);
+                    detailLL.Qty = Math.Round(decimal.Parse(transactionDataTable.Rows[i][2].ToString()),2);
                     detailLL.Total = Math.Round(decimal.Parse(transactionDataTable.Rows[i][3].ToString()),2);
                     detailLL.DealerCustomerId = dealerAndCustomer.Id;
                     detailLL.AddedDate = DateTime.Now;
                     detailLL.AddedBy = userLL.Id;
+
+                    //here increase or decrese Product Quantity based on Purchase or Sales
+                    string transactionTyp = purchaseAndSalesLabel.Text;
+                    bool quantityRegulator = false;
+                    //lets check whether we are on purchase or sales
+                    try
+                    {
+                        if (transactionTyp == "Purchase")
+                        {
+                            //increase the Products
+                            quantityRegulator = productDal.IncreaseProducts(detailLL.ProductId, detailLL.Qty);
+                        }
+                        else if (transactionTyp == "Sales")
+                        {
+                            //decrease the Sales
+                            quantityRegulator = productDal.DecreaseProduct(detailLL.ProductId, detailLL.Qty);
+
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+
+                        MessageBox.Show(ex.Message);
+                    }
+                  
+
                     // insert Transaction Details inside the DataBase
                     bool isInsertTransactioDetail = transactionDetailDal.InsertTransactionDetail(detailLL);
-                    success = isInsertTransaction && isInsertTransactioDetail;
+                    success = isInsertTransaction && isInsertTransactioDetail && quantityRegulator;
 
                 }
                 
@@ -295,9 +333,9 @@ namespace PosApp.UI
                     InvertorytextBox.Text = "0.00";
                     ratetextBox.Text = "0.00";
                     qtytextBox.Text = "0.00";
-                    subTotalTextBox.Text = "";
-                    discountTextBox.Text = "0";
-                    VatTextBox.Text = "";
+                    subTotalTextBox.Text = "0.00";
+                    discountTextBox.Text = "0.00";
+                    VatTextBox.Text = "0.00";
                     grandTotalTextBox.Text = "0.00";
                     PaidAmountTextBox.Text = "0.00";
                     ReturnAmountTextBox.Text = "0.00";
@@ -319,6 +357,21 @@ namespace PosApp.UI
         }
 
         private void DealerCustomerpanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void PurchaseAndSalesLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Panel4_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void QtytextBox_TextChanged(object sender, EventArgs e)
         {
 
         }

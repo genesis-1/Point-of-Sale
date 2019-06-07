@@ -119,6 +119,7 @@
             this.purchaseAndSalesLabel.Size = new System.Drawing.Size(211, 25);
             this.purchaseAndSalesLabel.TabIndex = 0;
             this.purchaseAndSalesLabel.Text = "PURCHASE AND SALES\r\n";
+            this.purchaseAndSalesLabel.Click += new System.EventHandler(this.PurchaseAndSalesLabel_Click);
             // 
             // dealerCustomerpanel
             // 
@@ -346,6 +347,7 @@
             this.qtytextBox.Name = "qtytextBox";
             this.qtytextBox.Size = new System.Drawing.Size(179, 27);
             this.qtytextBox.TabIndex = 14;
+            this.qtytextBox.TextChanged += new System.EventHandler(this.QtytextBox_TextChanged);
             // 
             // qtyLabel
             // 
@@ -440,6 +442,7 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(598, 262);
             this.panel4.TabIndex = 5;
+            this.panel4.Paint += new System.Windows.Forms.PaintEventHandler(this.Panel4_Paint);
             // 
             // saveButton
             // 

@@ -251,7 +251,7 @@ namespace PosApp.DAL
             return productLL;
         }
         #endregion
-        #region METHOD TO GET ID BASED ON PRODUCT
+        #region METHOD TO GET ID BASED ON PRODUCTName
         public ProductLL GetProductIdFromName(string keyWord)
         {
             ProductLL productLL = new ProductLL();
@@ -292,6 +292,141 @@ namespace PosApp.DAL
                 connection.Close();
             }
             return productLL;
+        }
+        #endregion
+        #region Method to get current Quantity from the Database based on ProductID
+        public decimal GetProductQty(int productId)
+        {
+            ProductLL productLL = new ProductLL();
+            decimal qty = 0;
+            SqlConnection connection = new SqlConnection(myconnectionstring);
+            //create a dataTable to hold the value temporily
+            DataTable dataTable = new DataTable();
+
+            try
+            {
+                string sql = "select qty from Products where Id = '"+productId+"'";
+
+                //create SqlData adapter to execute the Query
+
+                SqlDataAdapter dataAdapter = new SqlDataAdapter(sql, connection);
+
+                connection.Open();
+
+                //Transfer the data from sqlData adapter to Data table
+                dataAdapter.Fill(dataTable);
+
+                // if we hava values on datatable we need to save it in dealerCustomerBLL
+
+                if (dataTable.Rows.Count > 0)
+                {
+                    qty = decimal.Parse(dataTable.Rows[0]["qty"].ToString());
+
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return qty;
+        }
+        #endregion
+        #region Method to Update Quantity
+        public bool UpdateQuantity(int productId,decimal qty)
+        {
+            bool success = false;
+            SqlConnection connection = new SqlConnection(myconnectionstring);
+            try
+            {
+                string sql = "update Products set qty = @qty where Id = @Id";
+                SqlCommand command = new SqlCommand(sql, connection);
+                command.Parameters.AddWithValue("@qty", qty);
+                command.Parameters.AddWithValue("@Id", productId);
+
+                connection.Open();
+                int row = command.ExecuteNonQuery();
+                //lets check if the Querry is executed Successfully
+                if (row > 0)
+                {
+                    success = true;
+                    
+                }
+                else
+                {
+                    success = false;
+                    
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return success;
+        }
+        #endregion
+        #region method to increase Products
+        public bool IncreaseProducts(int ProductId,decimal increaseQty)
+        {
+            bool success = false;
+
+            SqlConnection connection = new SqlConnection(myconnectionstring);
+            try
+            {
+                //get the Current Quatity
+                decimal currentQty = GetProductQty(ProductId);
+                //increase the Quantity
+                decimal newQuantity = currentQty + increaseQty;
+
+                // update the Quantity
+                success = UpdateQuantity(ProductId,newQuantity);
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return success;
+        }
+        #endregion
+        #region Method to decrease Poducts
+        public bool DecreaseProduct(int productId,decimal qty)
+        {
+            bool success = false;
+            SqlConnection connection = new SqlConnection(myconnectionstring);
+            try
+            {
+                //decimal the current product Quantity
+                decimal currentQty = GetProductQty(productId);
+
+                //Decrease the Product Quantity
+
+                decimal newQty = currentQty - qty;
+                success = UpdateQuantity(productId,newQty);
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return success;
         }
         #endregion
 
